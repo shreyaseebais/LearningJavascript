@@ -6,7 +6,7 @@
 | 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
 | 3 | [Execution Context](#what-is-execution-context-) |
-| 4 | [Hoisting](#Hoisting) |
+| 4 | [Hoisting](#hoisting) |
 | 5 | [](#) |
 | 6 | [](#) |
 | 7 | [](#) |
@@ -214,9 +214,53 @@ Visualizing Execution Context
 
 
 4. ### Hoisting
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means you can use variables and functions before they are declared in the code.
+
+However, only the declarations are hoisted, not the initializations or assignments.
+
+1. Function declarations are fully hoisted.
+2. Variable declarations with var are hoisted but initialized to undefined.
+3. Variables declared with let and const are also hoisted but remain in a temporal dead zone (TDZ) until their declaration is encountered in the code.
+
+| Declaration Type           | Hoisted?                  | Initialized?           | Temporal Dead Zone?        |
+|----------------------------|---------------------------|------------------------|----------------------------|
+| var                        | Yes                       | Yes (undefined)        |	No                         |
+| let                        | Yes                       | No                     | Yes                        |
+| const                      | Yes                       | No	                  | Yes                        |
+| Function Declaration	     | Yes (entire function)	 | Yes	                  | No                         |
+| Function Expression        | Only the variable         |	No                    |	No                         |
+
+
+**Examples of Hoisting**
+
+
+```javascript
+    greet(); // Output: Hello, World!
+
+    function greet() {
+        console.log("Hello, World!");
+    }
+```
+Function declarations are fully hoisted, meaning you can call the function before its declaration.
+
+
+```javascript
+    console.log(a); // Output: undefined
+    var a = 10;
+    console.log(a); // Output: 10
+
+```
+During the compilation phase, the declaration var a is hoisted to the top.
+The variable is initialized to undefined until the assignment a = 10 is executed.
 
 **[⬆ Back to Top](#table-of-contents)**
 
+
+
+5. ###  
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 
 
