@@ -5,7 +5,7 @@
 | --- | --------- |
 | 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
-| 3 | [Execution Context](#) |
+| 3 | [Execution Context](#what-is-execution-context-) |
 | 4 | [Hoisting](#Hoisting) |
 | 5 | [](#) |
 | 6 | [](#) |
@@ -94,13 +94,21 @@ In JavaScript, the execution context is the environment in which JavaScript code
 1. What data is accessible (variables, functions, objects).
 2. How the code behaves in a specific context.
 Every time a function is invoked, or the global code is executed, an execution context is created.
+---
+<div>
+<p align="center">
+    <img src="./images/executionContext.png" alt="Javascript Engine" width="70%">
+</p>
+</div>
 
-**Types of Execution Context**
+---
+**TYPES of Execution Context**
 1. Global Execution Context (GEC)
 2. Function Execution Context (FEC)
 3. Eval Execution Context (rare)
 
-**Phases of Execution Context**
+**PHASES of Execution Context**
+
 Each execution context goes through two phases:
 
 **Creation Phase:**
@@ -113,7 +121,7 @@ Each execution context goes through two phases:
 1. Code is executed line by line.
 2. Variables are assigned their actual values.
 
-**Components of an Execution Context**
+**COMPONENTS of an Execution Context**
 
 **Variable Environment:**
 1. Stores variables, function declarations, and the outer environment reference.
@@ -127,7 +135,7 @@ Each execution context goes through two phases:
 2. In the global context, this refers to the global object (window or global).
 3. Inside functions, it depends on how the function is called (e.g., method call, arrow function).
 
-**Execution Context Stack (Call Stack)**
+**Execution Context STACK (Call Stack)**
 JavaScript uses a call stack to manage execution contexts. When a function is called:
 
 1. A new execution context is created and added to the stack.
@@ -135,25 +143,33 @@ JavaScript uses a call stack to manage execution contexts. When a function is ca
 
 **Examples**
 ```javascript
-    function first() {
-        console.log("First");
-        second();
+    function greeting() {
+        console.log("greeting");
+        sayHi();
     }
 
-    function second() {
-        console.log("Second");
+    function sayHi() {
+        console.log("sayHi");
     }
 
-    first();
+    greeting();
     console.log("Global");
 
 ```
 Execution Steps:
-1. Global Execution Context: Starts and pushes onto the stack.
-2. First Function Context: Created when first() is called and pushed onto the stack.
-3. Second Function Context: Created when second() is called and pushed onto the stack.
-4. Stack Cleanup: Each context is removed after its execution completes.
+1. STEP 1: The GEC is created and pushed on the execution stack as the global() object.
+2. STEP 2: The greeting() function is invoked and pushed on the stack.
+3. STEP 2: The sayHi() function is invoked and pushed on the stack.
+4. STEP 3: The sayHi() function is popped off the stack.
+5. STEP 3: The greetings() function is popped off the stack.
+---
+<div>
+<p align="center">
+    <img src="./images/executionStack.png" alt="Javascript Engine" width="70%">
+</p>
+</div>
 
+---
 
 
 Visualizing Execution Context
