@@ -116,7 +116,8 @@ Every time a function is invoked, or the global code is executed, an execution c
 Each execution context goes through two phases:
 
 **Creation Phase:**
-1. Memory is allocated for variables and functions.
+1. Creates the Variable Object - Memory is allocated for variables and functions.
+2. Creates the scope chain - List of all scopes.
 2. Variables are set to undefined (hoisting).
 3. Functions are stored in their entirety (hoisting).
 4. this is determined based on the context.
@@ -125,6 +126,14 @@ Each execution context goes through two phases:
 1. Code is executed line by line.
 2. Variables are assigned their actual values.
 
+---
+<div>
+<p align="center">
+    <img src="./images/ExecutionContext_variableObject.png" alt="Javascript Engine" width="50%">
+</p>
+</div>
+
+---
 **COMPONENTS of an Execution Context**
 
 **Variable Environment:**
