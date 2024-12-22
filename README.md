@@ -60,6 +60,14 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 4. Chakra (Microsoft)
 5. Hermes (Meta)
 
+---
+<div>
+<p align="center">
+    <img src="./images/jsEngine_flow.png" alt="Javascript Engine" width="100%">
+</p>
+</div>
+---
+
 **[⬆ Back to Top](#table-of-contents)**
 
 2. ### How Does a JavaScript Engine Work?
