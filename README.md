@@ -6,7 +6,7 @@
 | 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
 | 3 | [](#) |
-| 4 | [](#) |
+| 4 | [Hoisting](#Hoisting) |
 | 5 | [](#) |
 | 6 | [](#) |
 | 7 | [](#) |
@@ -23,26 +23,26 @@
 | 8 | [](#) |
 | 9 | [](#) |
 | 10 | [](#) |
-| 1 | [JavaScript Calculator](#JavaScript-Calculator) |
-| 2 | [Nested Array](#Nested-Array) |
-| 3 | [Reverse a String](#Reverse-a-String) |
-| 4 | [Chain Calculator](#Chain-Calculator) |
-| 5 | [Remove Duplicates from an Array](#Remove-Duplicates-from-an-Array) |
-| 6 | [Prime Number](#Prime-Number) |
-| 7 | [Fibonacci Series](#Fibonacci-Series) |
-| 8 | [Equality vs Strict Equality](#Equality-vs-Strict-Equality) |
-| 9 | [Largest number in Array](#Largest-number-in-Array) |
-| 10 | [Count vowels in a string](#Count-vowels-in-a-string) |
-| 11 | [BalancedBrackets](#Balanced-Brackets) |
-| 12 | [](#) |
-| 13 | [](#) |
-| 14 | [](#) |
-| 15 | [](#) |
-| 16 | [](#) |
-| 17 | [](#) |
-| 18 | [](#) |
-| 19 | [](#) |
-| 20 | [](#) |
+| 101 | [JavaScript Calculator](#JavaScript-Calculator) |
+| 102 | [Nested Array](#Nested-Array) |
+| 103 | [Reverse a String](#Reverse-a-String) |
+| 104 | [Chain Calculator](#Chain-Calculator) |
+| 105 | [Remove Duplicates from an Array](#Remove-Duplicates-from-an-Array) |
+| 106 | [Prime Number](#Prime-Number) |
+| 107 | [Fibonacci Series](#Fibonacci-Series) |
+| 108 | [Equality vs Strict Equality](#Equality-vs-Strict-Equality) |
+| 109 | [Largest number in Array](#Largest-number-in-Array) |
+| 110 | [Count vowels in a string](#Count-vowels-in-a-string) |
+| 111 | [BalancedBrackets](#Balanced-Brackets) |
+| 112 | [](#) |
+| 113 | [](#) |
+| 114 | [](#) |
+| 115 | [](#) |
+| 116 | [](#) |
+| 117 | [](#) |
+| 118 | [](#) |
+| 119 | [](#) |
+| 120 | [](#) |
 
 
 1. ### What is a JavaScript Engine?
@@ -56,6 +56,8 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 3. JavaScriptCore (JSC or Nitro)
 4. Chakra (Microsoft)
 5. Hermes (Meta)
+
+
 
 2. ### How Does a JavaScript Engine Work?
 
@@ -71,10 +73,16 @@ The compiled machine code is executed, and the JavaScript program runs.
 **Optimization:**
 Engines continuously analyze the running code and optimize it for better performance, adapting to frequently executed paths (hot code).
 
-1. ### JavaScript Calculator
+
+
+4. ### Hoisting
+
+
+101. ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
 
-2. ### Nested Array
+
+102. ### Nested Array
 Write a program to flatten a nested array.
 [[2,3],[2,6,7,9],87,12,[23,[56,22,[45,66,78]]]]
 
@@ -118,7 +126,7 @@ Using reduce method:
 
 
 
-3. ### Reverse a String
+103. ### Reverse a String
 Write a program to reverse a string
 
 
@@ -143,7 +151,7 @@ console.log('Using for loop : ', result)
 ```
 
 
-4. ### Chain Calculator
+104. ### Chain Calculator
 Write a program to make a chain calculator in javascript
 
 ```javascript
@@ -198,7 +206,7 @@ class ChainCalculator {
 ```
 
 
-5. ### Remove Duplicates from an Array
+105. ### Remove Duplicates from an Array
 Write a program to remove duplicates from an array 
 [1,4,5,6,98,56,76,22,98,5]
 
@@ -225,7 +233,7 @@ Write a program to remove duplicates from an array
     console.log('Using for each : ', uniqueArray)
 ```
 
-6. ### Check if Prime number
+106. ### Check if Prime number
 Write a program to check if given number is prime or not.
 
 ```javascript
@@ -244,7 +252,7 @@ Write a program to check if given number is prime or not.
     console.log('Is prime ?  ', result)
 ```
 
-7. ### Fibonacci Series
+107. ### Fibonacci Series
 Write a program to generate a fibonacci series for n numbers given.
 Take input = 15. Generate a sequence of 15count. Result should be Result shoud be [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377]
 
@@ -264,7 +272,7 @@ Take input = 15. Generate a sequence of 15count. Result should be Result shoud b
 ```
 
 
-8. ### Equality vs Strict Equality
+108. ### Equality vs Strict Equality
 Few examples of comparison between == and ===
 
 ```javascript
@@ -275,7 +283,7 @@ Few examples of comparison between == and ===
     console.log(undefined === 0); // false
 ```
 
-9. ### Largest number in Array
+109. ### Largest number in Array
 Find largest number in a given array
 
 ```javascript
@@ -306,7 +314,7 @@ Find largest number in a given array
     console.log('Using sort : ', largestNumberUsingSort(input));
 ```
 
-10. ### Count vowels in a string
+110. ### Count vowels in a string
 Write a program to count number of vowels in given string
 
 ```javascript
@@ -335,14 +343,14 @@ Write a program to count number of vowels in given string
     console.log('Using regex ', countVowelsUsingRegex(input));
 ```
 
-11. ### BalancedBrackets
+111. ### BalancedBrackets
 Check if all brackets are balanced.
 ([{}]) should return true
 (((}}}{][] should return false
 **[⬆ Back to Top](#table-of-contents)**
 
-12.
+112.
 
-13.
+113.
 
-14.
+114.
