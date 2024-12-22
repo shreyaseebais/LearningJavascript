@@ -147,24 +147,24 @@ JavaScript uses a call stack to manage execution contexts. When a function is ca
 
 **Examples**
 ```javascript
-     var name = "Jack";                  
-    console.log("Global Execution Context : var name ");
+    var name = "Jack";                  
+    console.log("Global Execution Context : Invoked & Pushed  - variable name, func greeting() sayHi()");
 
     function greeting() {
-        console.log('Execution context starts : greeting')
+        console.log('Execution context greeting: Invoked & Pushed')
         console.log("GREETING");
         sayHi();
-        console.log('Execution context ends : greeting')
+        console.log('Execution context greeting: Popped off')
     }
 
     function sayHi() {
-        console.log('Execution context starts : sayHi')
+        console.log('Execution context sayHi: Invoked & Pushed')
         console.log("HI " , name.toUpperCase() , 'HOW ARE YOU ? ' );
-        console.log('Execution context ends : sayHi')
+        console.log('Execution context sayHi: Popped off')
     }
 
     greeting();
-    console.log("Global Execution Context");
+    console.log("Global Execution Context : Popped off");
 
 ```
 Execution Steps:
