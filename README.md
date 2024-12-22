@@ -275,12 +275,59 @@ However, its value (the function) is not assigned until runtime (Creation phase 
 
 
 
-5. ###  
+5. ###  What is Scope Chain ?
+The scope chain in JavaScript is a mechanism that determines how variables, functions, and objects are accessed in nested functions. It is the chain of lexical environments where a JavaScript interpreter looks for variable and function declarations.
 
+When a variable or function is accessed, the JavaScript engine:
+
+1. First checks the current scope.
+2. If it doesn’t find the variable, it looks in the outer (parent) scope.
+3. This process continues up the chain until the global scope is reached.
+
+If the variable is not found in any scope, a ReferenceError is thrown.
+
+**Types of Scopes in JavaScript**
+
+**Global Scope:**
+1. Variables and functions declared outside of any function or block.
+2. Accessible from anywhere in the code.
+3. Forms the top of the scope chain.
+
+**Function Scope:**
+1. Variables declared inside a function.
+2. Accessible only within that function and its nested scopes.
+
+**Block Scope:**
+1. Variables declared with let and const inside a block (e.g., {}).
+2. Accessible only within that block.
+
+```javascript
+const globalVar = "I am global";
+
+function outer() {
+    const outerVar = "I am outer";
+
+    function inner() {
+        const innerVar = "I am inner";
+
+        console.log(globalVar); // "I am global"
+        console.log(outerVar);  // "I am outer"
+        console.log(innerVar);  // "I am inner"
+    }
+
+    inner();
+}
+
+outer();
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
 
+
+6. 
+
+**[⬆ Back to Top](#table-of-contents)**
 
 
 101. ### JavaScript Calculator
