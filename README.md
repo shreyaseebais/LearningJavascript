@@ -7,8 +7,8 @@
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
 | 3 | [Execution Context](#what-is-execution-context-) |
 | 4 | [Hoisting](#hoisting) |
-| 5 | [](#) |
-| 6 | [](#) |
+| 5 | [Scope Chain](#) |
+| 6 | [this variable](#) |
 | 7 | [](#) |
 | 8 | [](#) |
 | 9 | [](#) |
@@ -233,7 +233,7 @@ However, only the declarations are hoisted, not the initializations or assignmen
 
 **Examples of Hoisting**
 
-
+1. Hoisting with function declarations
 ```javascript
     greet(); // Output: Hello, World!
 
@@ -243,7 +243,7 @@ However, only the declarations are hoisted, not the initializations or assignmen
 ```
 Function declarations are fully hoisted, meaning you can call the function before its declaration.
 
-
+2. Hoisting with var 
 ```javascript
     console.log(a); // Output: undefined
     var a = 10;
@@ -252,6 +252,24 @@ Function declarations are fully hoisted, meaning you can call the function befor
 ```
 During the compilation phase, the declaration var a is hoisted to the top.
 The variable is initialized to undefined until the assignment a = 10 is executed.
+
+3. Hoisting with let and const
+```javascript
+    console.log(b); // ReferenceError: Cannot access 'b' before initialization
+    let b = 20;
+```
+For let & const, the area before initialization is called the temporal dead zone (TDZ).
+let and const declarations are hoisted but are not initialized until their line of declaration is reached.
+
+4. Hoisting with function expressions 
+```javascript
+    greet(); // TypeError: greet is not a function
+    var greet = function () {
+    console.log("Hello How are you ?");
+};
+```
+Here, greet is declared with var and is hoisted as a variable(var greet). 
+However, its value (the function) is not assigned until runtime (Creation phase has created it as variable greet = undefined. Execution phase cannot read function of undefined undefined()).
 
 **[⬆ Back to Top](#table-of-contents)**
 
