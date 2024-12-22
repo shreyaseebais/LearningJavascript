@@ -8,7 +8,7 @@
 | 3 | [Execution Context](#what-is-execution-context-) |
 | 4 | [Hoisting](#hoisting) |
 | 5 | [Scope Chain](#what-is-scope-chain-) |
-| 6 | [this variable](#) |
+| 6 | [this variable](#what-is-the-this-keyword-in-javascript) |
 | 7 | [](#) |
 | 8 | [](#) |
 | 9 | [](#) |
