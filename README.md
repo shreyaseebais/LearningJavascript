@@ -50,6 +50,13 @@ A JavaScript engine is a program or interpreter that executes JavaScript code. I
 
 Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
 
+**Popular JavaScript Engines**
+1. V8 (Google)
+2. SpiderMonkey (Mozilla)
+3. JavaScriptCore (JSC or Nitro)
+4. Chakra (Microsoft)
+5. Hermes (Meta)
+
 2. ### How Does a JavaScript Engine Work?
 
 **Parsing:**
