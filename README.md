@@ -26,11 +26,69 @@ Write a program to make a calculator using simple javascript, html, css.
 Write a program to flatten a nested array.
 [[2,3],[2,6,7,9],87,12,[23,[56,22,[45,66,78]]]]
 
+Using Array.flat():
+```javascript
+   const nestedArray = [[2,3],[2,6,7,9],87,12,[23,[56,22,[45,66,78]]]];
+   var result = nestedArray.flat(Infinity);
+   console.log(result);
+```
+
+Using for for loop: 
+```javascript
+   const nestedArray = [[2,3],[2,6,7,9],87,12,[23,[56,22,[45,66,78]]]];
+   result = flattenTheArray(nestedArray);
+   console.log(result);
+
+    function flattenTheArray(arr){
+        let flatArray = [];
+        for(let i=0;i<arr.length;i++){
+            if(Array.isArray(arr[i])){
+                flatArray = flatArray.concat(flattenTheArray(arr[i]))
+            }else{
+                flatArray.push(arr[i]);
+            }
+        }
+        return flatArray;
+    }
+```
+
+Using reduce method: 
+```javascript
+   result = flattenTheArrayUsingReduce(nestedArray);
+   console.log(result);
+
+   function flattenTheArrayUsingReduce(arr){
+        return arr.reduce((acc, item)=>{
+            return acc.concat(Array.isArray(item)? flattenTheArrayUsingReduce(item):item)
+        }, []); 
+    }
+```
+
+
+
 3. ### Reverse a String
 Write a program to reverse a string
 
+```javascript
+    console.log(null == undefined); // true
+    console.log(null === undefined); // false
+    console.log(null == 0); // false
+    console.log(undefined == 0); // false
+    console.log(undefined === 0); // false
+```
+
+
 4. ### Chain Calculator
 Write a program to make a chain calculator in javascript
+
+```javascript
+    console.log(null == undefined); // true
+    console.log(null === undefined); // false
+    console.log(null == 0); // false
+    console.log(undefined == 0); // false
+    console.log(undefined === 0); // false
+```
+
 
 5. ### Remove Duplicates from an Array
 Write a program to remove duplicates from an array 
