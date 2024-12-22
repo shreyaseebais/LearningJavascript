@@ -46,6 +46,14 @@ Take input = 15. Generate a sequence of 15count. Result should be Result shoud b
 8. ### Equality vs Strict Equality
 Few examples of comparison between == and ===
 
+```javascript
+    console.log(null == undefined); // true
+    console.log(null === undefined); // false
+    console.log(null == 0); // false
+    console.log(undefined == 0); // false
+    console.log(undefined === 0); // false
+```
+
 9. ### Largest number in Array
 Find largest number in a given array
 
@@ -56,6 +64,7 @@ Write a program to count number of vowels in given string
 Check if all brackets are balanced.
 ([{}]) should return true
 (((}}}{][] should return false
+**[⬆ Back to Top](#table-of-contents)**
 
 12.
 
