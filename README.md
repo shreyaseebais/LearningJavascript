@@ -68,9 +68,10 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 </div>
 
 ---
-
-
 **[⬆ Back to Top](#table-of-contents)**
+
+
+
 
 2. ### How Does a JavaScript Engine Work?
 
@@ -87,6 +88,9 @@ The compiled machine code is executed, and the JavaScript program runs.
 Engines continuously analyze the running code and optimize it for better performance, adapting to frequently executed paths (hot code).
 
 **[⬆ Back to Top](#table-of-contents)**
+
+
+
 
 
 3. ### What is Execution context ?
@@ -143,17 +147,24 @@ JavaScript uses a call stack to manage execution contexts. When a function is ca
 
 **Examples**
 ```javascript
+     var name = "Jack";                  
+    console.log("Global Execution Context : var name ");
+
     function greeting() {
-        console.log("greeting");
+        console.log('Execution context starts : greeting')
+        console.log("GREETING");
         sayHi();
+        console.log('Execution context ends : greeting')
     }
 
     function sayHi() {
-        console.log("sayHi");
+        console.log('Execution context starts : sayHi')
+        console.log("HI " , name.toUpperCase() , 'HOW ARE YOU ? ' );
+        console.log('Execution context ends : sayHi')
     }
 
     greeting();
-    console.log("Global");
+    console.log("Global Execution Context");
 
 ```
 Execution Steps:
@@ -189,9 +200,17 @@ Visualizing Execution Context
 
 **[⬆ Back to Top](#table-of-contents)**
 
+
+
+
+
 4. ### Hoisting
 
 **[⬆ Back to Top](#table-of-contents)**
+
+
+
+
 
 101. ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
