@@ -3,6 +3,26 @@
 
 | No. | Questions |
 | --- | --------- |
+| 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine?) |
+| 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work?) |
+| 3 | [](#) |
+| 4 | [](#) |
+| 5 | [](#) |
+| 6 | [](#) |
+| 7 | [](#) |
+| 8 | [](#) |
+| 9 | [](#) |
+| 10 | [](#) |
+| 1 | [](#) |
+| 2 | [](#) |
+| 3 | [](#) |
+| 4 | [](#) |
+| 5 | [](#) |
+| 6 | [](#) |
+| 7 | [](#) |
+| 8 | [](#) |
+| 9 | [](#) |
+| 10 | [](#) |
 | 1 | [JavaScript Calculator](#JavaScript-Calculator) |
 | 2 | [Nested Array](#Nested-Array) |
 | 3 | [Reverse a String](#Reverse-a-String) |
@@ -17,7 +37,32 @@
 | 12 | [](#) |
 | 13 | [](#) |
 | 14 | [](#) |
+| 15 | [](#) |
+| 16 | [](#) |
+| 17 | [](#) |
+| 18 | [](#) |
+| 19 | [](#) |
+| 20 | [](#) |
 
+
+1. ### What is a JavaScript Engine?
+A JavaScript engine is a program or interpreter that executes JavaScript code. It is responsible for parsing, optimizing, and running the code written in JavaScript, enabling it to interact with web pages, servers, and other applications.
+
+Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
+
+2. ### How Does a JavaScript Engine Work?
+
+**Parsing:**
+The engine reads the JavaScript code (source code) and converts it into an abstract syntax tree (AST), a structured representation of the code.
+
+**Compilation:**
+Instead of interpreting JavaScript directly (line-by-line), modern engines use JIT compilation, where the code is compiled into machine code during execution for faster performance.
+
+**Execution:**
+The compiled machine code is executed, and the JavaScript program runs.
+
+**Optimization:**
+Engines continuously analyze the running code and optimize it for better performance, adapting to frequently executed paths (hot code).
 
 1. ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
@@ -151,47 +196,45 @@ Write a program to remove duplicates from an array
 [1,4,5,6,98,56,76,22,98,5]
 
 ```javascript
-    /////      Remove Duplicates from an Array    ///////
-const input = [1,4,5,6,98,56,76,22,98,5];
+    const input = [1,4,5,6,98,56,76,22,98,5];
 
 
-//Method1 
-var uniqueArray = [...new Set(input)];
-console.log("Using Set : ", uniqueArray);
+    //Method1 
+    var uniqueArray = [...new Set(input)];
+    console.log("Using Set : ", uniqueArray);
 
 
-//Method2
-function removeDuplicates(arr){
-    let result=[];
-    arr.forEach(item => {
-        if(!result.includes(item)){
-            result.push(item)
-        }
-    })
-    return result
-}
-uniqueArray=removeDuplicates(input);
-console.log('Using for each : ', uniqueArray)
+    //Method2
+    function removeDuplicates(arr){
+        let result=[];
+        arr.forEach(item => {
+            if(!result.includes(item)){
+                result.push(item)
+            }
+        })
+        return result
+    }
+    uniqueArray=removeDuplicates(input);
+    console.log('Using for each : ', uniqueArray)
 ```
 
 6. ### Check if Prime number
 Write a program to check if given number is prime or not.
 
 ```javascript
-   /////      Prime number    ///////
-const input = 29;
+    const input = 29;
 
-function isPrime(num){
-    if(num<1) return false;
-    if(num===2)  return true;
-    for(let i =2 ; i<Math.sqrt(num);i++){
-        if(num%i === 0) return false;
+    function isPrime(num){
+        if(num<1) return false;
+        if(num===2)  return true;
+        for(let i =2 ; i<Math.sqrt(num);i++){
+            if(num%i === 0) return false;
+        }
+        return true;
     }
-    return true;
-}
 
-result=isPrime(input);
-console.log('Is prime ?  ', result)
+    result=isPrime(input);
+    console.log('Is prime ?  ', result)
 ```
 
 7. ### Fibonacci Series
@@ -199,18 +242,18 @@ Write a program to generate a fibonacci series for n numbers given.
 Take input = 15. Generate a sequence of 15count. Result should be Result shoud be [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377]
 
 ```javascript
-input = 15;
+    input = 15;
 
-function fibonacciSeries(num){
-    console.log(num)
-    let series = [0,1];
-    for(let i=0; i<num-2; i++){
-        series.push(series[i]+ series[i+1]);
+    function fibonacciSeries(num){
+        console.log(num)
+        let series = [0,1];
+        for(let i=0; i<num-2; i++){
+            series.push(series[i]+ series[i+1]);
+        }
+        return series;
     }
-    return series;
-}
 
-console.log('Series upto is', fibonacciSeries(input));
+    console.log('Series upto is', fibonacciSeries(input));
 ```
 
 
@@ -229,62 +272,60 @@ Few examples of comparison between == and ===
 Find largest number in a given array
 
 ```javascript
-    //////    Largest number    //////////
-input = [3,5,8,77,35,98,2,35];
+    input = [3,5,8,77,35,98,2,35];
 
-// Method 1
-function largest(arr){
-    let largest = arr[0];
-    for(let i=0; i<arr.length; i++){
-       if(arr[i]>largest)  { largest=arr[i]}
+    // Method 1
+    function largest(arr){
+        let largest = arr[0];
+        for(let i=0; i<arr.length; i++){
+        if(arr[i]>largest)  { largest=arr[i]}
+        }
+        return largest
     }
-    return largest
-}
-console.log('Using for loop ', largest(input));
+    console.log('Using for loop ', largest(input));
 
 
-//Method2 
-function largestNumber(arr){
-       return Math.max(...arr)
-}
-console.log('Using Math ', largestNumber(input));
+    //Method2 
+    function largestNumber(arr){
+        return Math.max(...arr)
+    }
+    console.log('Using Math ', largestNumber(input));
 
-//Method3
-function largestNumberUsingSort(arr){
-    arr.sort((a,b)=> b-a);
-    return arr[0];
-}
-console.log('Using sort : ', largestNumberUsingSort(input));
+    //Method3
+    function largestNumberUsingSort(arr){
+        arr.sort((a,b)=> b-a);
+        return arr[0];
+    }
+    console.log('Using sort : ', largestNumberUsingSort(input));
 ```
 
 10. ### Count vowels in a string
 Write a program to count number of vowels in given string
 
 ```javascript
-    //////     Count Vowels    //////////
-input = 'uzbekistan';
+    input = 'uzbekistan';
 
-// Method 1
-function countVowels(str){
-    let vowelsStr = 'aeiouAEIOU';
-    let count = 0;
-    for(let char of str){
-        if(vowelsStr.includes(char)){
-           count++;
+    // Method 1
+    function countVowels(str){
+        let vowelsStr = 'aeiouAEIOU';
+        let count = 0;
+        for(let char of str){
+            if(vowelsStr.includes(char)){
+            count++;
+            }
         }
+        return count;
     }
-    return count;
-}
-console.log('Using for loop ', countVowels(input));
+    console.log('Using for loop ', countVowels(input));
 
 
-//Method2 
-function countVowelsUsingRegex(str){
-    const matches = str.match(/[aeiouAEIOU]/g);
-    return matches? matches.length: 0;
-    
-}
-console.log('Using regex ', countVowelsUsingRegex(input));
+    //Method2 
+    function countVowelsUsingRegex(str){
+        const matches = str.match(/[aeiouAEIOU]/g);
+        return matches? matches.length: 0;
+        
+    }
+    console.log('Using regex ', countVowelsUsingRegex(input));
 ```
 
 11. ### BalancedBrackets
