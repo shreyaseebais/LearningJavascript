@@ -7,7 +7,7 @@
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
 | 3 | [Execution Context](#what-is-execution-context-) |
 | 4 | [Hoisting](#hoisting) |
-| 5 | [Scope Chain](#) |
+| 5 | [Scope Chain](#what-is-scope-chain-) |
 | 6 | [this variable](#) |
 | 7 | [](#) |
 | 8 | [](#) |
@@ -286,7 +286,7 @@ When a variable or function is accessed, the JavaScript engine:
 
 If the variable is not found in any scope, a ReferenceError is thrown.
 
-**Types of Scopes in JavaScript**
+**TYPES of Scopes in JavaScript**
 
 **Global Scope:**
 1. Variables and functions declared outside of any function or block.
@@ -325,9 +325,22 @@ outer();
 
 
 
-6. 
+
+
+
+6. ### What is the this Keyword in JavaScript? 
+In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined.
+
+**Key Rules for this in JavaScript**
+1. 
+
+2. 
 
 **[⬆ Back to Top](#table-of-contents)**
+
+
+
+
 
 
 101. ### JavaScript Calculator
