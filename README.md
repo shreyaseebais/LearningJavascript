@@ -13,7 +13,7 @@
 | 8 | [Equality vs Strict Equality](#Equality-vs-Strict-Equality) |
 | 9 | [Largest number in Array](#Largest-number-in-Array) |
 | 10 | [Count vowels in a string](#Count-vowels-in-a-string) |
-| 11 | [](#) |
+| 11 | [BalancedBrackets](#Balanced-Brackets) |
 | 12 | [](#) |
 | 13 | [](#) |
 | 14 | [](#) |
@@ -52,7 +52,10 @@ Find largest number in a given array
 10. ### Count vowels in a string
 Write a program to count number of vowels in given string
 
-11.
+11. ### BalancedBrackets
+Check if all brackets are balanced.
+([{}]) should return true
+(((}}}{][] should return false
 
 12.
 
