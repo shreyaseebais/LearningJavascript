@@ -295,6 +295,8 @@ Few examples of comparison between == and ===
     console.log(undefined === 0); // false
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 109. ### Largest number in Array
 Find largest number in a given array
 
@@ -362,6 +364,7 @@ Write a program to count number of vowels in given string
 Check if all brackets are balanced.
 ([{}]) should return true
 (((}}}{][] should return false
+
 **[⬆ Back to Top](#table-of-contents)**
 
 112.
