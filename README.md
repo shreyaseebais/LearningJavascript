@@ -3,8 +3,8 @@
 
 | No. | Questions |
 | --- | --------- |
-| 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine?) |
-| 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work?) |
+| 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
+| 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
 | 3 | [](#) |
 | 4 | [](#) |
 | 5 | [](#) |
