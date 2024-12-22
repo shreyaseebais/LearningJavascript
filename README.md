@@ -43,7 +43,7 @@
 | 118 | [](#) |
 | 119 | [](#) |
 | 120 | [](#) |
-
+**[⬆ Back to Top](#table-of-contents)**
 
 1. ### What is a JavaScript Engine?
 A JavaScript engine is a program or interpreter that executes JavaScript code. It is responsible for parsing, optimizing, and running the code written in JavaScript, enabling it to interact with web pages, servers, and other applications.
@@ -57,7 +57,7 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 4. Chakra (Microsoft)
 5. Hermes (Meta)
 
-
+**[⬆ Back to Top](#table-of-contents)**
 
 2. ### How Does a JavaScript Engine Work?
 
@@ -73,14 +73,16 @@ The compiled machine code is executed, and the JavaScript program runs.
 **Optimization:**
 Engines continuously analyze the running code and optimize it for better performance, adapting to frequently executed paths (hot code).
 
-
+**[⬆ Back to Top](#table-of-contents)**
 
 4. ### Hoisting
 
+**[⬆ Back to Top](#table-of-contents)**
 
 101. ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
 
+**[⬆ Back to Top](#table-of-contents)**
 
 102. ### Nested Array
 Write a program to flatten a nested array.
@@ -124,7 +126,7 @@ Using reduce method:
     }
 ```
 
-
+**[⬆ Back to Top](#table-of-contents)**
 
 103. ### Reverse a String
 Write a program to reverse a string
@@ -150,6 +152,7 @@ result=(reverseTheString(input));
 console.log('Using for loop : ', result)
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
 
 104. ### Chain Calculator
 Write a program to make a chain calculator in javascript
@@ -205,6 +208,7 @@ class ChainCalculator {
   console.log("Result :  ",  result); 
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
 
 105. ### Remove Duplicates from an Array
 Write a program to remove duplicates from an array 
@@ -233,6 +237,8 @@ Write a program to remove duplicates from an array
     console.log('Using for each : ', uniqueArray)
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 106. ### Check if Prime number
 Write a program to check if given number is prime or not.
 
@@ -251,6 +257,8 @@ Write a program to check if given number is prime or not.
     result=isPrime(input);
     console.log('Is prime ?  ', result)
 ```
+
+**[⬆ Back to Top](#table-of-contents)**
 
 107. ### Fibonacci Series
 Write a program to generate a fibonacci series for n numbers given.
@@ -271,6 +279,7 @@ Take input = 15. Generate a sequence of 15count. Result should be Result shoud b
     console.log('Series upto is', fibonacciSeries(input));
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
 
 108. ### Equality vs Strict Equality
 Few examples of comparison between == and ===
@@ -314,6 +323,8 @@ Find largest number in a given array
     console.log('Using sort : ', largestNumberUsingSort(input));
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 110. ### Count vowels in a string
 Write a program to count number of vowels in given string
 
@@ -342,6 +353,7 @@ Write a program to count number of vowels in given string
     }
     console.log('Using regex ', countVowelsUsingRegex(input));
 ```
+**[⬆ Back to Top](#table-of-contents)**
 
 111. ### BalancedBrackets
 Check if all brackets are balanced.
