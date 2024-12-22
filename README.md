@@ -5,7 +5,7 @@
 | --- | --------- |
 | 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
 | 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
-| 3 | [](#) |
+| 3 | [Execution Context](#) |
 | 4 | [Hoisting](#Hoisting) |
 | 5 | [](#) |
 | 6 | [](#) |
@@ -63,10 +63,12 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 ---
 <div>
 <p align="center">
-    <img src="./images/jsEngine_flow.png" alt="Javascript Engine" width="100%">
+    <img src="./images/jsEngine_flow.png" alt="Javascript Engine" width="70%">
 </p>
 </div>
+
 ---
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -83,6 +85,91 @@ The compiled machine code is executed, and the JavaScript program runs.
 
 **Optimization:**
 Engines continuously analyze the running code and optimize it for better performance, adapting to frequently executed paths (hot code).
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+3. ### What is Execution context ?
+In JavaScript, the execution context is the environment in which JavaScript code is evaluated and executed. It determines:
+1. What data is accessible (variables, functions, objects).
+2. How the code behaves in a specific context.
+Every time a function is invoked, or the global code is executed, an execution context is created.
+
+**Types of Execution Context**
+1. Global Execution Context (GEC)
+2. Function Execution Context (FEC)
+3. Eval Execution Context (rare)
+
+**Phases of Execution Context**
+Each execution context goes through two phases:
+
+**Creation Phase:**
+1. Memory is allocated for variables and functions.
+2. Variables are set to undefined (hoisting).
+3. Functions are stored in their entirety (hoisting).
+4. this is determined based on the context.
+
+**Execution Phase:**
+1. Code is executed line by line.
+2. Variables are assigned their actual values.
+
+**Components of an Execution Context**
+
+**Variable Environment:**
+1. Stores variables, function declarations, and the outer environment reference.
+
+**Lexical Environment:**
+1. The structure holding the local variables and functions.
+2. Considers the location of variables in the source code.
+
+**this Binding:**
+1. Refers to the object associated with the execution context.
+2. In the global context, this refers to the global object (window or global).
+3. Inside functions, it depends on how the function is called (e.g., method call, arrow function).
+
+**Execution Context Stack (Call Stack)**
+JavaScript uses a call stack to manage execution contexts. When a function is called:
+
+1. A new execution context is created and added to the stack.
+2. When the function finishes execution, its context is removed from the stack.
+
+**Examples**
+```javascript
+    function first() {
+        console.log("First");
+        second();
+    }
+
+    function second() {
+        console.log("Second");
+    }
+
+    first();
+    console.log("Global");
+
+```
+Execution Steps:
+1. Global Execution Context: Starts and pushes onto the stack.
+2. First Function Context: Created when first() is called and pushed onto the stack.
+3. Second Function Context: Created when second() is called and pushed onto the stack.
+4. Stack Cleanup: Each context is removed after its execution completes.
+
+
+
+Visualizing Execution Context
+```javascript
+    function greet() {
+        let name = "John";
+        console.log("Hello, " + name);
+    }
+
+    greet();
+```
+1. Global Execution Context:
+    a. greet is defined.
+2. Function Execution Context for greet:
+    a. name is stored in memory.
+    b. console.log() executes.
 
 **[⬆ Back to Top](#table-of-contents)**
 
