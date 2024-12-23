@@ -56,11 +56,11 @@ A JavaScript engine is a program or interpreter that executes JavaScript code. I
 Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
 
 **Popular JavaScript Engines**
-1. V8 (Google)
-2. SpiderMonkey (Mozilla)
-3. JavaScriptCore (JSC or Nitro)
-4. Chakra (Microsoft)
-5. Hermes (Meta)
+> V8 (Google)
+> SpiderMonkey (Mozilla)
+> JavaScriptCore (JSC or Nitro)
+> Chakra (Microsoft)
+> Hermes (Meta)
 
 ---
 <div>
@@ -99,8 +99,8 @@ Engines continuously analyze the running code and optimize it for better perform
 
 3. ### What is Execution context ?
 In JavaScript, the execution context is the environment in which JavaScript code is evaluated and executed. It determines:
-1. What data is accessible (variables, functions, objects).
-2. How the code behaves in a specific context.
+* What data is accessible (variables, functions, objects).
+* How the code behaves in a specific context.
 Every time a function is invoked, or the global code is executed, an execution context is created.
 ---
 <div>
@@ -120,15 +120,15 @@ Every time a function is invoked, or the global code is executed, an execution c
 Each execution context goes through two phases:
 
 **Creation Phase:**
-1. Creates the Variable Object - Memory is allocated for variables and functions.
-2. Creates the scope chain - List of all scopes.
-2. Variables are set to undefined (hoisting).
-3. Functions are stored in their entirety (hoisting).
-4. this is determined based on the context.
+* Creates the Variable Object - Memory is allocated for variables and functions.
+* Creates the scope chain - List of all scopes.
+* Variables are set to undefined (hoisting).
+* Functions are stored in their entirety (hoisting).
+* this is determined based on the context.
 
 **Execution Phase:**
-1. Code is executed line by line.
-2. Variables are assigned their actual values.
+> Code is executed line by line.
+> Variables are assigned their actual values.
 
 ---
 <div>
