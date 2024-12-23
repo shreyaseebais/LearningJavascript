@@ -144,8 +144,10 @@ Each execution context goes through two phases:
 1. Stores variables, function declarations, and the outer environment reference.
 
 **Lexical Environment:**
-1. The structure holding the local variables and functions.
-2. Considers the location of variables in the source code.
+* The structure holding the local variables and functions.
+* Considers the location of variables in the source code.
+
+**Lexical Scope** (or static scope) refers to the scope determined by the position of variables and functions in the source code. It means that a function's scope is defined during its creation, based on where it is written in the code, not where it is called.
 
 **this Binding:**
 1. Refers to the object associated with the execution context.
@@ -182,12 +184,12 @@ JavaScript uses a call stack to manage execution contexts. When a function is ca
 ```
 Execution Steps:
 * STEP 1: The GEC is created and pushed on the execution stack as the global() object.
-*   
-    * STEP 2: The greeting() function is invoked and pushed on the stack.
-    * STEP 2: The sayHi() function is invoked and pushed on the stack.
-* 
-    * STEP 3: The sayHi() function is popped off the stack.
-    * STEP 3: The greetings() function is popped off the stack.
+* STEP 2:  
+    * The greeting() function is invoked and pushed on the stack.
+    * The sayHi() function is invoked and pushed on the stack.
+* STEP 3: 
+    * The sayHi() function is popped off the stack.
+    * The greetings() function is popped off the stack.
 ---
 <div>
 <p align="center">
@@ -207,11 +209,11 @@ Visualizing Execution Context
 
     greet();
 ```
-1. Global Execution Context:
-    a. greet is defined.
-2. Function Execution Context for greet:
-    a. name is stored in memory.
-    b. console.log() executes.
+* Global Execution Context:
+    * greet is defined.
+* Function Execution Context for greet:
+    * name is stored in memory.
+    * console.log() executes.
 
 
 
@@ -338,13 +340,69 @@ outer();
 6. ### What is the this Keyword in JavaScript? 
 In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined.
 
+|           Context	                 |               Value of this                               |
+|------------------------------------|-----------------------------------------------------------|
+| Global Scope	                     | Global object (window in browsers).                       |
+| Regular Function (non-strict)      | Global object (window in browsers).                       |   
+| Regular Function (strict mode)     | undefined.                                                |
+| Method in Object	                 | The object the method is called on.                       |
+| Constructor Function	             | The newly created object.                                 |
+| Class	                             | The instance of the class.                                |
+| Arrow Function	                 | Inherited from the enclosing lexical environment.         |
+| Event Handler	                     | The element that triggered the event.                     | 
+| Explicit Binding (call/apply/bind) |Explicitly set value.                                      |
+
+
+
 **Key Rules for this in JavaScript**
-1. 
-
-2. 
-
+* The value of this is determined at runtime, depending on how a function is called.
+* Arrow functions do not have their own this; they inherit it from their lexical scope.
 
 
+**How this Works in Different Contexts**
+
+1. Global Context
+
+In the global scope:
+
+* In browsers, this refers to the global object (window).
+* In Node.js, it refers to the global object (global).
+
+
+2. Inside a Function
+
+* Non-strict Mode: this refers to the global object.
+* Strict Mode: this is undefined.
+
+3. Inside an Object (Method Call)
+
+* When a function is called as a method of an object, this refers to the object that owns the method.
+
+4. Inside a Constructor Function
+
+* In a constructor function, this refers to the newly created object.
+
+5. Inside a Class
+
+* In a class, this refers to the instance of the class.
+
+
+6. Arrow Functions
+
+* Arrow functions do not have their own this. Instead, this is lexically inherited from the surrounding scope (the value of this where the arrow function is defined).
+
+
+7. In Event Handlers
+
+* this refers to the element that triggered the event.
+
+
+8. Explicit Binding (call, apply, and bind)
+You can explicitly set the value of this using call, apply, or bind.
+
+* call: Invokes a function with a specific this value and arguments provided individually.
+* apply: Similar to call, but arguments are passed as an array.
+* bind: Returns a new function with this permanently set to the specified value.
 
 
 
