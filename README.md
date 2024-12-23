@@ -447,6 +447,7 @@ obj.greet(); // undefined
 7. In Event Handlers
 
 * this refers to the element that triggered the event.
+
 ```javascript
 document.getElementById("myButton").addEventListener("click", function () {
     console.log(this); // The button element
@@ -461,7 +462,21 @@ You can explicitly set the value of this using call, apply, or bind.
 * apply: Similar to call, but arguments are passed as an array.
 * bind: Returns a new function with this permanently set to the specified value.
 
+```javascript
+const person = {
+    name: "Alice",
+};
 
+function greet(greeting) {
+    console.log(`${greeting}, ${this.name}`);
+}
+
+greet.call(person, "Hello"); // Outputs: Hello, Alice
+greet.apply(person, ["Hi"]); // Outputs: Hi, Alice
+
+const boundGreet = greet.bind(person);
+boundGreet("Hey"); // Outputs: Hey, Alice
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
