@@ -56,11 +56,11 @@ A JavaScript engine is a program or interpreter that executes JavaScript code. I
 Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
 
 **Popular JavaScript Engines**
-> V8 (Google)
-> SpiderMonkey (Mozilla)
-> JavaScriptCore (JSC or Nitro)
-> Chakra (Microsoft)
-> Hermes (Meta)
+* V8 (Google)
+* SpiderMonkey (Mozilla)
+* JavaScriptCore (JSC or Nitro)
+* Chakra (Microsoft)
+* Hermes (Meta)
 
 ---
 <div>
@@ -127,8 +127,8 @@ Each execution context goes through two phases:
 * this is determined based on the context.
 
 **Execution Phase:**
-> Code is executed line by line.
-> Variables are assigned their actual values.
+* Code is executed line by line.
+* Variables are assigned their actual values.
 
 ---
 <div>
@@ -181,11 +181,13 @@ JavaScript uses a call stack to manage execution contexts. When a function is ca
 
 ```
 Execution Steps:
-1. STEP 1: The GEC is created and pushed on the execution stack as the global() object.
-2. STEP 2: The greeting() function is invoked and pushed on the stack.
-3. STEP 2: The sayHi() function is invoked and pushed on the stack.
-4. STEP 3: The sayHi() function is popped off the stack.
-5. STEP 3: The greetings() function is popped off the stack.
+* STEP 1: The GEC is created and pushed on the execution stack as the global() object.
+*   
+    * STEP 2: The greeting() function is invoked and pushed on the stack.
+    * STEP 2: The sayHi() function is invoked and pushed on the stack.
+* 
+    * STEP 3: The sayHi() function is popped off the stack.
+    * STEP 3: The greetings() function is popped off the stack.
 ---
 <div>
 <p align="center">
