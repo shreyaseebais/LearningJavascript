@@ -9,7 +9,7 @@
 | 4 | [ Hoisting ](#hoisting) |
 | 5 | [ Scope Chain ](#what-is-scope-chain-) |
 | 6 | [ this keyword ](#what-is-the-this-keyword-in-javascript) |
-| 7 | [ How to iterate over a JavaScript object ? ](#) |
+| 7 | [ How to iterate over a JavaScript object ? ](#how-to-iterate-over-a-javascript-object-) |
 | 8 | [](#) |
 | 9 | [](#) |
 | 10 | [](#) |
@@ -538,6 +538,21 @@ boundGreet("Hey"); // Outputs: Hey, Alice
     }
     iterateObject();
 ```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+8. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
 
 **[⬆ Back to Top](#table-of-contents)**
 
