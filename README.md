@@ -3,13 +3,13 @@
 
 | No. | Questions |
 | --- | --------- |
-| 1 | [JavaScript Engine](#What-is-a-JavaScript-Engine) |
-| 2 | [Working of Javascript Engine](#How-Does-a-JavaScript-Engine-Work) |
-| 3 | [Execution Context](#what-is-execution-context-) |
-| 4 | [Hoisting](#hoisting) |
-| 5 | [Scope Chain](#what-is-scope-chain-) |
-| 6 | [this variable](#what-is-the-this-keyword-in-javascript) |
-| 7 | [](#) |
+| 1 | [ JavaScript Engine ](#What-is-a-JavaScript-Engine) |
+| 2 | [ Working of Javascript Engine ](#How-Does-a-JavaScript-Engine-Work) |
+| 3 | [ Execution Context ](#what-is-execution-context-) |
+| 4 | [ Hoisting ](#hoisting) |
+| 5 | [ Scope Chain ](#what-is-scope-chain-) |
+| 6 | [ this keyword ](#what-is-the-this-keyword-in-javascript) |
+| 7 | [ How to iterate over a JavaScript object ? ](#) |
 | 8 | [](#) |
 | 9 | [](#) |
 | 10 | [](#) |
@@ -476,6 +476,67 @@ greet.apply(person, ["Hi"]); // Outputs: Hi, Alice
 
 const boundGreet = greet.bind(person);
 boundGreet("Hey"); // Outputs: Hey, Alice
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+7. ### How to iterate over a JavaScript object ?
+* Using for loop
+```javascript
+    function iterateObject() {
+        let exampleObj = {
+            book: "Sherlock Holmes",
+            author: "Arthur Conan Doyle",
+            genre: "Mystery"
+        };
+
+        for (let key in exampleObj) {
+            if (exampleObj.hasOwnProperty(key)) {
+                value = exampleObj[key];
+                console.log(key, value);
+            }
+        }
+    }
+    iterateObject();
+```
+* Using Object.entries() and map() Method
+```javascript
+    function iterateObject() {
+        let exampleObj = {
+            book: "Sherlock Holmes",
+            author: "Arthur Conan Doyle",
+            genre: "Mystery"
+        };
+
+        Object.entries(exampleObj).map(entry => {
+            let key = entry[0];
+            let value = entry[1];
+            console.log(key, value);
+        });
+    }
+    iterateObject();
+```
+
+* Using forEach() and object.keys() Method
+```javascript
+    function iterateObject() {
+        let exampleObj = {
+            book: "Sherlock Holmes",
+            author: "Arthur Conan Doyle",
+            genre: "Mystery"
+        };
+
+        Object.keys(exampleObj).forEach(key => {
+            const value = exampleObj[key];
+            console.log(`${key}: ${value}`);
+        });
+
+    }
+    iterateObject();
 ```
 
 **[⬆ Back to Top](#table-of-contents)**
