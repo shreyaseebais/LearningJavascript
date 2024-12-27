@@ -957,10 +957,46 @@ Write a program to count number of vowels in given string
 
 111. ### BalancedBrackets
 Check if all brackets are balanced.
+
+Example: 
+
 ([{}]) should return true
 (((}}}{][] should return false
 
+```javascript
+const testBrackets = "([{([])}[]{}])";
+if (areBracketsBalanced(testBrackets)) {
+  console.log("The brackets are balanced in ", testBrackets);
+} else {
+  console.log("The brackets are not balanced in ", testBrackets);
+}
 
+function areBracketsBalanced(str){
+    let openingBrackets = ['(', '{', '[']
+    let closingBrackets = [')', '}', ']']
+    let bracketsMapping = {
+        '(' : ')',
+        '{' : '}',
+        '[' : ']',
+    }
+    let bracketsStack = []
+    for(let i=0; i<str.length; i++){
+        if(openingBrackets.includes(str[i])){
+            bracketsStack.push(str[i])
+        }else{
+            let pairOfLastOpenBracket = bracketsMapping[bracketsStack.pop()]
+            if(! (pairOfLastOpenBracket == str[i])){
+                return false;
+            }
+        }
+    }
+    if(! bracketsStack.length == 0){
+        return false
+    }
+    return true;
+}
+
+```
 
 
 **[⬆ Back to Top](#table-of-contents)**
