@@ -13,27 +13,27 @@
 | 8 | [](#) |
 | 9 | [](#) |
 | 10 | [](#) |
-| 1 | [](#) |
-| 2 | [](#) |
-| 3 | [](#) |
-| 4 | [](#) |
-| 5 | [](#) |
-| 6 | [](#) |
-| 7 | [](#) |
-| 8 | [](#) |
-| 9 | [](#) |
-| 10 | [](#) |
+| 11 | [](#) |
+| 12 | [](#) |
+| 13 | [](#) |
+| 14 | [](#) |
+| 15 | [](#) |
+| 16 | [](#) |
+| 17 | [](#) |
+| 18 | [](#) |
+| 19 | [](#) |
+| 20 | [](#) |
 | 101 | [JavaScript Calculator](#JavaScript-Calculator) |
-| 102 | [Nested Array](#Nested-Array) |
-| 103 | [Reverse a String](#Reverse-a-String) |
-| 104 | [Chain Calculator](#Chain-Calculator) |
-| 105 | [Remove Duplicates from an Array](#Remove-Duplicates-from-an-Array) |
-| 106 | [Prime Number](#Prime-Number) |
-| 107 | [Fibonacci Series](#Fibonacci-Series) |
-| 108 | [Equality vs Strict Equality](#Equality-vs-Strict-Equality) |
-| 109 | [Largest number in Array](#Largest-number-in-Array) |
-| 110 | [Count vowels in a string](#Count-vowels-in-a-string) |
-| 111 | [BalancedBrackets](#Balanced-Brackets) |
+| 102 | [](#) |
+| 103 | [](#) |
+| 104 | [](#) |
+| 105 | [](#) |
+| 106 | [](#) |
+| 107 | [](#) |
+| 108 | [](#) |
+| 109 | [](#) |
+| 110 | [](#) |
+| 111 | [](#) |
 | 112 | [](#) |
 | 113 | [](#) |
 | 114 | [](#) |
