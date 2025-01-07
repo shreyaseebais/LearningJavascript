@@ -3,15 +3,15 @@
 
 | No. | Questions |
 | --- | --------- |
-| 1 | [ JavaScript Engine ](#What-is-a-JavaScript-Engine) |
-| 2 | [ Working of Javascript Engine ](#How-Does-a-JavaScript-Engine-Work) |
-| 3 | [ Execution Context ](#what-is-execution-context-) |
-| 4 | [ Hoisting ](#hoisting) |
-| 5 | [ Scope Chain ](#what-is-scope-chain-) |
-| 6 | [ this keyword ](#what-is-the-this-keyword-in-javascript) |
-| 7 | [ How to iterate over a JavaScript object ? ](#how-to-iterate-over-a-javascript-object-) |
-| 8 | [](#) |
-| 9 | [](#) |
+| 1 | [ JavaScript Engine ](#1-what-is-a-javascript-engine) |
+| 2 | [ Working of Javascript Engine ](#2-how-does-a-javascript-engine-work) |
+| 3 | [ Execution Context ](#3-what-is-execution-context-) |
+| 4 | [ Hoisting ](#4-hoisting) |
+| 5 | [ Scope Chain ](#5-what-is-scope-chain-) |
+| 6 | [ this keyword ](#6-what-is-the-this-keyword-in-javascript) |
+| 7 | [ How to iterate over a JavaScript object ? ](#7-how-to-iterate-over-a-javascript-object-) |
+| 8 | [ Is Javascript Synchronous or Asynchronous ? ](#8-is-javascript-synchronous-or-asynchronous-) |
+| 9 | [ What is Strict mode in javascript? ](#9-what-is-strict-mode-in-javascript) |
 | 10 | [](#) |
 | 11 | [](#) |
 | 12 | [](#) |
