@@ -598,7 +598,7 @@ This is achieved using:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-9. ### What is Strict mode in javascript?
+### 9. What is Strict mode in javascript?
 
 Strict mode in JavaScript is a feature that makes the language's behavior more predictable and secure by applying stricter parsing and error handling. It helps developers write cleaner, less error-prone code by eliminating silent errors and encouraging best practices.
 
