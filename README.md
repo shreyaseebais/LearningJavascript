@@ -566,16 +566,151 @@ This is achieved using:
 * Promises
 * async/await
 
-**[⬆ Back to Top](#table-of-contents)**
-
-9. ### XYZ
-
+**Callback**
 ```javascript
-   console.log('xyz');
+    setTimeout(() => {
+    console.log("Callback executed");
+    }, 1000);
 ```
 
+**Promises**
+```javascript
+    fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+```
+
+**async/await**
+```javascript
+    async function fetchData() {
+    try {
+        const response = await fetch("https://api.example.com/data");
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+    }
+
+    fetchData();
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+9. ### What is Strict mode in javascript?
+
+Strict mode in JavaScript is a feature that makes the language's behavior more predictable and secure by applying stricter parsing and error handling. It helps developers write cleaner, less error-prone code by eliminating silent errors and encouraging best practices.
 
 
+**Enable Strict Mode Globally:**
+```javascript
+   "use strict";
+
+    x = 10; // Error: x is not defined
+```
+
+**Enable Strict Mode Locally:**
+Note: It is not recommended to enable strict mode globally in mixed environments, as it may affect third-party scripts or libraries that don't use strict mode.
+
+
+```javascript
+function myFunction() {
+    "use strict";
+    y = 20; // Error: y is not defined
+}
+
+myFunction();
+
+```
+
+**Key Features of Strict Mode**
+
+* 1. Prevents the Use of Undeclared Variables
+
+Variables must be explicitly declared with let, const, or var.
+```javascript
+
+"use strict";
+x = 10; // Error: x is not defined
+```
+
+* 2. Disallows Duplicate Parameter Names
+
+Functions cannot have parameters with the same name.
+
+```javascript
+"use strict";
+function example(a, a) { // Error: Duplicate parameter name not allowed
+  return a;
+}
+```
+
+* 3. Eliminates this Binding for Global Objects
+
+In strict mode, this in a function defaults to undefined, instead of the global object.
+
+```javascript
+
+"use strict";
+function showThis() {
+  console.log(this);
+}
+showThis(); // Output: undefined
+```
+
+* 4. Prevents Assignment to Read-Only Properties
+
+Assigning a value to a read-only property throws an error.
+```javascript
+"use strict";
+const obj = Object.freeze({ name: "John" });
+obj.name = "Doe"; // Error: Cannot assign to read-only property
+```
+
+* 5. Disallows with Statements
+
+The with statement is prohibited because it makes the scope ambiguous.
+```javascript
+"use strict";
+with (Math) { // Error: Strict mode code may not include a with statement
+  console.log(PI);
+}
+```
+
+* 6. Catches Silent Errors
+
+Many silent errors in non-strict mode throw exceptions in strict mode.
+```javascript
+"use strict";
+delete Object.prototype; // Error: Cannot delete property 'prototype'
+```
+
+* 7. Prohibits Octal Literals
+
+Octal literals are not allowed in strict mode.
+```javascript
+"use strict";
+const num = 010; // Error: Octal literals are not allowed
+```
+
+* 8. Improved eval Behavior
+
+Variables declared inside eval do not affect the surrounding scope.
+```javascript
+"use strict";
+eval("var x = 10;");
+console.log(x); // Error: x is not defined
+```
+
+* 9. Disallows Deleting Plain Names
+
+You cannot delete a variable, function, or object declared in strict mode.
+```javascript
+"use strict";
+let x = 10;
+delete x; // Error: Cannot delete variable declared with let
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
