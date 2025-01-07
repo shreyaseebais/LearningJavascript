@@ -50,7 +50,7 @@
 
 **[⬆ Back to Top](#table-of-contents)**
 
-1. ### What is a JavaScript Engine?
+### 1. What is a JavaScript Engine?
 A JavaScript engine is a program or interpreter that executes JavaScript code. It is responsible for parsing, optimizing, and running the code written in JavaScript, enabling it to interact with web pages, servers, and other applications.
 
 Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
@@ -77,7 +77,7 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 
 **[⬆ Back to Top](#table-of-contents)**
 
-2. ### How Does a JavaScript Engine Work?
+### 2. How Does a JavaScript Engine Work?
 
 **Parsing:**
 The engine reads the JavaScript code (source code) and converts it into an abstract syntax tree (AST), a structured representation of the code.
@@ -97,7 +97,7 @@ Engines continuously analyze the running code and optimize it for better perform
 
 **[⬆ Back to Top](#table-of-contents)**
 
-3. ### What is Execution context ?
+### 3. What is Execution context ?
 In JavaScript, the execution context is the environment in which JavaScript code is evaluated and executed. It determines:
 * What data is accessible (variables, functions, objects).
 * How the code behaves in a specific context.
@@ -130,14 +130,13 @@ Each execution context goes through two phases:
 * Code is executed line by line.
 * Variables are assigned their actual values.
 
----
+
 <div>
 <p align="center">
     <img src="./images/ExecutionContext_variableObject.png" alt="Javascript Engine" width="50%">
 </p>
 </div>
 
----
 **COMPONENTS of an Execution Context**
 
 **Variable Environment:**
@@ -221,7 +220,7 @@ Visualizing Execution Context
 
 **[⬆ Back to Top](#table-of-contents)**
 
-4. ### Hoisting
+### 4. Hoisting
 Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means you can use variables and functions before they are declared in the code.
 
 However, only the declarations are hoisted, not the initializations or assignments.
@@ -285,7 +284,7 @@ However, its value (the function) is not assigned until runtime (Creation phase 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-5. ###  What is Scope Chain ?
+### 5. What is Scope Chain ?
 The scope chain in JavaScript is a mechanism that determines how variables, functions, and objects are accessed in nested functions. It is the chain of lexical environments where a JavaScript interpreter looks for variable and function declarations.
 
 When a variable or function is accessed, the JavaScript engine:
@@ -337,7 +336,7 @@ outer();
 
 **[⬆ Back to Top](#table-of-contents)**
 
-6. ### What is the this Keyword in JavaScript? 
+### 6. What is the this Keyword in JavaScript? 
 In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined.
 
 |           Context	                 |               Value of this                               |
@@ -361,7 +360,7 @@ In JavaScript, this is a special keyword that refers to the object that is execu
 
 **How this Works in Different Contexts**
 
-1. Global Context
+* 1. Global Context
 In the global scope:
 
 * In browsers, this refers to the global object (window).
@@ -374,7 +373,7 @@ In the global scope:
    "use strict";
     console.log(this); // undefined
 ```
-2. Inside a Function
+* 2. Inside a Function
 * Non-strict Mode: this refers to the global object.
 * Strict Mode: this is undefined.
 ```javascript
@@ -390,7 +389,7 @@ In the global scope:
     strictShowThis(); // undefined
 ```
 
-3. Inside an Object (Method Call)
+* 3. Inside an Object (Method Call)
 * When a function is called as a method of an object, this refers to the object that owns the method.
 ```javascript
    const obj = {
@@ -403,7 +402,7 @@ In the global scope:
 
 ```
 
-4. Inside a Constructor Function
+* 4. Inside a Constructor Function
 * In a constructor function, this refers to the newly created object.
 ```javascript
     function Person(name) {
@@ -413,7 +412,7 @@ In the global scope:
     const person1 = new Person("Bob");
     console.log(person1.name); // Outputs: Bob
 ```
-5. Inside a Class
+* 5. Inside a Class
 * In a class, this refers to the instance of the class.
 ```javascript
    class Person {
@@ -431,7 +430,7 @@ In the global scope:
 
 ```
 
-6. Arrow Functions
+* 6. Arrow Functions
 
 * Arrow functions do not have their own this. Instead, this is lexically inherited from the surrounding scope (the value of this where the arrow function is defined).
 ```javascript
@@ -444,7 +443,7 @@ const obj = {
 obj.greet(); // undefined
 ```
 
-7. In Event Handlers
+* 7. In Event Handlers
 
 * this refers to the element that triggered the event.
 
@@ -455,7 +454,7 @@ document.getElementById("myButton").addEventListener("click", function () {
 ```
 
 
-8. Explicit Binding (call, apply, and bind)
+* 8. Explicit Binding (call, apply, and bind)
 You can explicitly set the value of this using call, apply, or bind.
 
 * call: Invokes a function with a specific this value and arguments provided individually.
@@ -484,7 +483,7 @@ boundGreet("Hey"); // Outputs: Hey, Alice
 
 **[⬆ Back to Top](#table-of-contents)**
 
-7. ### How to iterate over a JavaScript object ?
+### 7. How to iterate over a JavaScript object ?
 * Using for loop
 ```javascript
     function iterateObject() {
@@ -545,7 +544,7 @@ boundGreet("Hey"); // Outputs: Hey, Alice
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### Is Javascript Synchronous or Asynchronous ?
+### 8. Is Javascript Synchronous or Asynchronous ?
 
 JavaScript is **single-threaded**.
 
@@ -712,9 +711,12 @@ let x = 10;
 delete x; // Error: Cannot delete variable declared with let
 ```
 
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### XYZ
+### 10. XYZ
 
 ```javascript
    console.log('xyz');
@@ -725,7 +727,17 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### XYZ
+### 10. XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 10. XYZ
 
 ```javascript
    console.log('xyz');
@@ -736,7 +748,7 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### XYZ
+### 10. XYZ
 
 ```javascript
    console.log('xyz');
@@ -747,7 +759,7 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### XYZ
+### 10. XYZ
 
 ```javascript
    console.log('xyz');
@@ -758,7 +770,7 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. ### XYZ
+### 10. XYZ
 
 ```javascript
    console.log('xyz');
@@ -768,6 +780,19 @@ delete x; // Error: Cannot delete variable declared with let
 
 
 **[⬆ Back to Top](#table-of-contents)**
+
+### 10. XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+
+
+
 
 
 101. ### JavaScript Calculator
