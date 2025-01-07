@@ -623,9 +623,9 @@ myFunction();
 
 ```
 
-**Key Features of Strict Mode**
+### Key Features of Strict Mode
 
-* 1. Prevents the Use of Undeclared Variables
+* Prevents the Use of Undeclared Variables
 
 Variables must be explicitly declared with let, const, or var.
 ```javascript
@@ -634,7 +634,7 @@ Variables must be explicitly declared with let, const, or var.
 x = 10; // Error: x is not defined
 ```
 
-* 2. Disallows Duplicate Parameter Names
+* Disallows Duplicate Parameter Names
 
 Functions cannot have parameters with the same name.
 
@@ -645,7 +645,7 @@ function example(a, a) { // Error: Duplicate parameter name not allowed
 }
 ```
 
-* 3. Eliminates this Binding for Global Objects
+* Eliminates this Binding for Global Objects
 
 In strict mode, this in a function defaults to undefined, instead of the global object.
 
@@ -658,7 +658,7 @@ function showThis() {
 showThis(); // Output: undefined
 ```
 
-* 4. Prevents Assignment to Read-Only Properties
+* Prevents Assignment to Read-Only Properties
 
 Assigning a value to a read-only property throws an error.
 ```javascript
@@ -667,7 +667,7 @@ const obj = Object.freeze({ name: "John" });
 obj.name = "Doe"; // Error: Cannot assign to read-only property
 ```
 
-* 5. Disallows 'with' Statements
+* Disallows 'with' Statements
 
 The with statement is prohibited because it makes the scope ambiguous.
 ```javascript
@@ -677,7 +677,7 @@ with (Math) { // Error: Strict mode code may not include a with statement
 }
 ```
 
-* 6. Catches Silent Errors
+* Catches Silent Errors
 
 Many silent errors in non-strict mode throw exceptions in strict mode.
 ```javascript
@@ -685,7 +685,7 @@ Many silent errors in non-strict mode throw exceptions in strict mode.
 delete Object.prototype; // Error: Cannot delete property 'prototype'
 ```
 
-* 7. Prohibits Octal Literals
+* Prohibits Octal Literals
 
 Octal literals are not allowed in strict mode.
 ```javascript
@@ -693,7 +693,7 @@ Octal literals are not allowed in strict mode.
 const num = 010; // Error: Octal literals are not allowed
 ```
 
-* 8. Improved eval Behavior
+* Improved eval Behavior
 
 Variables declared inside eval do not affect the surrounding scope.
 ```javascript
@@ -702,7 +702,7 @@ eval("var x = 10;");
 console.log(x); // Error: x is not defined
 ```
 
-* 9. Disallows Deleting Plain Names
+* Disallows Deleting Plain Names
 
 You cannot delete a variable, function, or object declared in strict mode.
 ```javascript
@@ -870,7 +870,7 @@ A function that runs immediately after being defined.
 
 ### 16. What are Anonymous Functions?
 
-Functions without a name, often used as arguments.
+The function has no name and is assigned directly to a variable.
 ```javascript
 const numbers = [1, 2, 3];
 numbers.forEach(function(num) {
@@ -878,24 +878,47 @@ numbers.forEach(function(num) {
 });
 ```
 
-
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### 17. XYZ
-
 ```javascript
-   console.log('xyz');
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet("Alice")); // Output: Hello, Alice!   
 ```
 
 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### 17. What is Function Expression?
+A function expression in JavaScript is a way to define a function by assigning it to a variable.
 
 ```javascript
-   console.log('xyz');
+    const variableName = function(parameters) {
+    // Function body
+    };
+```
+
+Examples:
+* Anonymous Function Expression
+* Named Function Expression
+
+
+A function expression cannot be hoisted; cannot be used before it's defined. While Function declaration can be Hoisted; can be used before it's defined.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 18. What is Named Function Expression ? 
+The function has a name, which is useful for debugging or recursion.
+
+```javascript
+   const factorial = function fact(n) {
+    if (n === 0) return 1;
+    return n * fact(n - 1); // The function refers to itself using the name `fact`.
+    };
+
+    console.log(factorial(5)); // Output: 120
+
 ```
 
 
