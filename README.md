@@ -667,7 +667,7 @@ const obj = Object.freeze({ name: "John" });
 obj.name = "Doe"; // Error: Cannot assign to read-only property
 ```
 
-* 5. Disallows with Statements
+* 5. Disallows 'with' Statements
 
 The with statement is prohibited because it makes the scope ambiguous.
 ```javascript
@@ -716,10 +716,106 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### 10. What is Function ?
+
+In JavaScript, a function is a block of reusable code designed to perform a specific task. Functions are fundamental building blocks in JavaScript, allowing you to structure code into manageable and reusable components.
+
+**Defining a Function**
+
+Functions can be defined in several ways:
+
+* 1. Function Declaration
+
+Declares a named function using the function keyword.
+```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice")); // Output: Hello, Alice!
+```
+
+* 2. Function Expression
+
+Assigns an anonymous (or named) function to a variable.
 
 ```javascript
-   console.log('xyz');
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet("Bob")); // Output: Hello, Bob!
+```
+* 3. Arrow Function (ES6)
+
+A shorter syntax for writing functions, using the => arrow.
+
+```javascript
+const greet = (name) => `Hello, ${name}!`;
+
+console.log(greet("Charlie")); // Output: Hello, Charlie!
+```
+
+* 4.  Anonymous Function
+
+A function without a name, often used as an argument in higher-order functions.
+```javascript
+setTimeout(function() {
+  console.log("This is an anonymous function");
+}, 1000);
+```
+
+* 5. Constructor Function
+
+A function used with new to create objects.
+
+```javascript
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const person1 = new Person("David", 30);
+console.log(person1.name); // Output: David
+```
+
+
+**Calling a Function**
+A function is executed when it is called or invoked.
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(3, 5)); // Output: 8
+```
+
+### 11. What are Parameters and Arguments ?
+Parameters: Variables defined in the function definition.
+Arguments: Values passed to the function when it is called.
+
+Example:
+```javascript
+function multiply(a, b) {
+  return a * b;
+}
+
+console.log(multiply(2, 4)); // Output: 8
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 12. How can you declare Default Parameters ?
+You can set default values for parameters.
+```javascript
+function greet(name = "Guest") {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet());        // Output: Hello, Guest!
+console.log(greet("Alice")); // Output: Hello, Alice!
 ```
 
 
@@ -727,7 +823,66 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### 13. What are Pure Functions?
+
+Always produce the same output for the same input and have no side effects.
+```javascript
+function square(x) {
+  return x * x;
+}
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 14. What are Higher-Order Functions?
+
+Functions that take other functions as arguments or return them.
+```javascript
+function calculate(operation, a, b) {
+  return operation(a, b);
+}
+
+const add = (x, y) => x + y;
+console.log(calculate(add, 3, 5)); // Output: 8
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 15. What are Immediately Invoked Function Expression (IIFE)?
+
+A function that runs immediately after being defined.
+```javascript
+(function() {
+  console.log("IIFE executed");
+})();
+
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 16. What are Anonymous Functions?
+
+Functions without a name, often used as arguments.
+```javascript
+const numbers = [1, 2, 3];
+numbers.forEach(function(num) {
+  console.log(num);
+});
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 17. XYZ
 
 ```javascript
    console.log('xyz');
