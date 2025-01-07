@@ -904,7 +904,7 @@ Examples:
 * Named Function Expression
 
 
-A function expression cannot be hoisted; cannot be used before it's defined. While Function declaration can be Hoisted; can be used before it's defined.
+A function expression cannot be hoisted(cannot be used before it's defined). Unlike Function declaration which can be Hoisted (can be used before it's defined).
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -926,7 +926,21 @@ The function has a name, which is useful for debugging or recursion.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### 19. What are Slice and Splice methods in JS? What are differences? 
+
+**slice()**
+Extracts a portion of an array without modifying the original array.
+
+**splice()**
+Adds, removes, or replaces elements in an array.
+
+| Feature               |  	slice()                             |               	splice()                |
+|-----------------------|---------------------------------------|-------------------------------------------|
+| Purpose               | Extracts part of an array.	        | Adds, removes, or replaces elements.      |
+| Original Array        | Does not modify the original array.   |	Modifies the original array.            |
+| Return Value          | A new array with the sliced elements.	|An array of removed elements (if any).     |
+| Parameters            | start, end.	                        | start, deleteCount, items.                |
+
 
 ```javascript
    console.log('xyz');
@@ -966,7 +980,7 @@ The function has a name, which is useful for debugging or recursion.
 ```
 
 
-
+**[⬆ Back to Top](#table-of-contents)**
 
 
 
@@ -981,6 +995,18 @@ Write a program to make a calculator using simple javascript, html, css.
 
 
 
+
+**[⬆ Back to Top](#table-of-contents)**
+
+102. ### Student Portal
+Write a program to make a calculator using simple javascript, html, css.
+```javascript
+   console.log('Student portal using arrays ');
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 108. ### Equality vs Strict Equality
 Few examples of comparison between == and ===

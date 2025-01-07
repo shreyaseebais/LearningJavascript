@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@700&display=swap" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>An Overview of Array methods in JavaScript</title>
+    </head>
+    <body>
+        <!--WEBSITE HEADER WITH LOGO-->
+        <header>
+            <span id="icon"><ion-icon name="logo-google-playstore"></ion-icon></span>
+            <span>Student Portal</span>
+        </header>
+
+        <!--LOGIN SECTION-->
+        <section class="sections" id="login-section">
+            <div class="login-page">
+                <h2>Login Here</h2>
+                <div>
+                    <input type="text" placeholder="Username" id="username">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" id="Password">
+                </div>
+                <div>
+                    <button class="btn" id="login-btn">Login</button>
+                </div>
+            </div>
+        </section>
+
+        <!--STUDENT DETAIL SECTION-->
+        <section class="sections" id="details-section">
+            <h2>Student Details</h2>
+            <div>
+                <label>Student Name:</label>
+                <span id="name">John Smith</span>
+            </div>
+            <div>
+                <label>Gender:</label>
+                <span id="gender">Male</span>
+            </div>
+            <div>
+                <label>Total Marks Obtained:</label>
+                <span id="totalMarks">325</span>
+            </div>
+            <div>
+                <label>Percentage of Marks:</label>
+                <span id="percentage">73%</span>
+            </div>
+            <div id="message">
+                <p><span class="message-type-pass">Congratulations!</span> You have cleared the exam with 73%.</p>
+            </div>
+        </section>
+
+        <!--ADMIN SECTION-->
+        <section class="sections" id="admin-section">
+            <h2>Student List</h2>
+            <div>
+                <select id="filter-selection">
+                    <option value="All">All</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Fail">Fail</option>
+                  </select>
+                  <button class="btn" id="filter-btn">Filter</button>
+                  <button class="btn" id="sort-by-name">Sort By Name</button>
+                  <button class="btn" id="sort-by-marks">Sort By Marks</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Marks</th>
+                        <th>Percentage</th>
+                        <th>Pass / Fail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>John</td>
+                        <td>Male</td>
+                        <td>325</td>
+                        <td>73%</td>
+                        <td>Pass</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </section>
+    </body>
+    <script src="script.js"></script>
+</html>
