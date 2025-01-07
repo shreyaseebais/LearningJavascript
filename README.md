@@ -542,8 +542,42 @@ boundGreet("Hey"); // Outputs: Hey, Alice
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
+8. ### Is Javascript Synchronous or Asynchronous ?
+
+JavaScript is **single-threaded**.
+
+JavaScript is both synchronous and asynchronous, depending on the context in which the code is executed. Here's an explanation:
+
+**Synchronous by Default**
+```javascript
+    console.log("First");
+    console.log("Second");
+    console.log("Third");
+```
+**Asynchronous Behavior**
+JavaScript supports asynchronous programming to handle tasks that might take time (e.g., fetching data, reading files, or waiting for user input) without blocking the main thread.
+
+This is achieved using:
+
+* Callbacks
+* Promises
+* async/await
+
+**[⬆ Back to Top](#table-of-contents)**
+
+9. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 8. ### XYZ
 
@@ -555,6 +589,51 @@ boundGreet("Hey"); // Outputs: Hey, Alice
 
 
 **[⬆ Back to Top](#table-of-contents)**
+
+8. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+8. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+8. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+8. ### XYZ
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 
 101. ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
