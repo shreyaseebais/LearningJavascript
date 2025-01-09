@@ -62,14 +62,11 @@ Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compil
 * Chakra (Microsoft)
 * Hermes (Meta)
 
----
 <div>
 <p align="center">
     <img src="./images/jsEngine_flow.png" alt="Javascript Engine" width="70%">
 </p>
 </div>
-
----
 
 
 
@@ -399,6 +396,51 @@ If the variable is not found in any scope, a ReferenceError is thrown.
 **Block Scope:**
 * Variables declared with let and const inside a block (e.g., {}).
 * Accessible only within that block.
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Block Scope?
+
+A block is used to combine multiple javascript statements into a group { }. 
+
+Suppose below code expects a single statement after if()
+```javascript
+    if(true) 
+        return "Hello, You are in!";
+```
+
+We want to replace the statement with a group of statements, we need to use block 
+```javascript
+    if(true){
+        let fName = "John";
+        return "Hello John, You are in!"
+    }
+```
+This group of statements inside the {} is called block .
+
+
+
+Block Scope means what all variables & constants can we use inside this block { }
+```javascript
+    var a= 10;
+    let b= 20;
+    const c= 30;
+```
+<div>
+<p align="center">
+    <img src="./images/blockScope.png" alt="Javascript Engine" width="70%">
+</p>
+</div>
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Among let var and const, which ones are block scoped?
+
 
 
 
