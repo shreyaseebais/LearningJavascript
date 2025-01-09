@@ -304,39 +304,40 @@ However, its value (the function) is not assigned until runtime (Creation phase 
 ### Can you redeclare let and var?
 
 let variables cannot be redeclared. It is strict. Below codes will give Syntax error: Identifier a has already been declared.
-    ```javascript
-        let a = 10;
-        let a = 20;
-    ```
-    ```javascript
-        let a = 10;
-        var a = 20;
-    ```
+```javascript
+    let a = 10;
+    let a = 20;
+```
+
+```javascript
+    let a = 10;
+    var a = 20;
+```
 
 var variables can be redeclared
-    ```javascript
-        var a = 10;
-        var a = 20;
-    ```
+```javascript
+    var a = 10;
+    var a = 20;
+```
 
 const is even more strict. It asks to be initialized while declaration only. Below code gives syntax error: Missing initializer in const declaration.
-    ```javascript
-        const a;
-        a = 20;
-    ```
+```javascript
+    const a;
+    a = 20;
+```
 
 while below code gives TypeError: Assignment to constant variable not allowed.
-    ```javascript
-        const a = 10;
-        a = 20;
-    ```
+```javascript
+    const a = 10;
+    a = 20;
+```
 
 below code gives Reference error: y is not defined.
-    ```javascript
-        console.log(y);
-        let a = 10;
-        let b = 20;
-    ```
+        ```javascript
+            console.log(y);
+            let a = 10;
+            let b = 20;
+        ```
 
 
 
