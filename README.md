@@ -441,7 +441,10 @@ See how these variables occur in block/global scope while debugging :
 **[⬆ Back to Top](#table-of-contents)**
 
 ### What is Shadowing?
- 
+
+Shadowing in JavaScript occurs when a variable in a local scope (e.g., inside a function or block) has the same name as a variable in an outer scope. The local variable "shadows" the outer variable, making the outer variable inaccessible within the scope where the shadowing occurs.
+
+Eg 1. 
 ```javascript
     let b=100;
     {
@@ -454,16 +457,56 @@ See how these variables occur in block/global scope while debugging :
     }
     console.log(b);                     //prints 100
 ```
+
 Inside the block b is shadowing the value 100 and is having the value of 20. This is called shadowing a variable.
+
 <div>
 <p align="center">
-    <img src="./images/shadowing.png" alt="Shadowing" width="40%">
+    <img src="./images/shadowing.png" alt="Shadowing" width="15%">
 </p>
 </div>
 
+Eg 2. 
 
+Valid shadowing
 
+```javascript
+    let a = 10;
+    {
+        let a=20;
+    }
+```
 
+Valid shadowing
+
+```javascript
+    var a = 10;
+    {
+        let a=20;
+    }
+```
+
+Eg 3.
+
+Illegal shadowing
+
+Why? because the inside declared variable(20) should not cross the boundary. And here var a has it's scope outside as well.
+
+```javascript
+    let a = 10;
+    {
+        var a=20;
+    }
+```
+
+var is function scoped hence in below case a will keep inside the function, it won't cross it's boundaries.
+Hence below code is Legal
+```javascript
+    let a = 10;
+    function x(){
+        var a=20;
+    }
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
