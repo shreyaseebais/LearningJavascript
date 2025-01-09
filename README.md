@@ -420,11 +420,12 @@ We want to replace the statement with a group of statements, we need to use bloc
         return "Hello John, You are in!"
     }
 ```
-This group of statements inside the {} is called block .
-
-
 
 Block Scope means what all variables & constants can we use inside this block { }
+
+
+
+See how these variables occur in block/global scope while debugging : 
 ```javascript
     var a= 10;
     let b= 20;
@@ -432,15 +433,33 @@ Block Scope means what all variables & constants can we use inside this block { 
 ```
 <div>
 <p align="center">
-    <img src="./images/blockScope.png" alt="BlockScope" width="70%">
+    <img src="./images/blockScope.png" alt="BlockScope" width="50%">
 </p>
 </div>
 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Among let var and const, which ones are block scoped?
-
+### What is Shadowing?
+ 
+```javascript
+    let b=100;
+    {
+        var a = 10;
+        let b = 20;
+        const c = 30;
+        console.log(a);
+        console.log(b);                 //prints 20
+        console.log(c);
+    }
+    console.log(b);                     //prints 100
+```
+Inside the block b is shadowing the value 100 and is having the value of 20. This is called shadowing a variable.
+<div>
+<p align="center">
+    <img src="./images/shadowing.png" alt="Shadowing" width="40%">
+</p>
+</div>
 
 
 
