@@ -306,43 +306,51 @@ When a variable or function is accessed, the JavaScript engine:
 1. First checks the current scope.
 2. If it doesn’t find the variable, it looks in the outer (parent) scope.
 3. This process continues up the chain until the global scope is reached.
+4. See example below. The variables inside console.log() first finds its value current scope, if not found tries to find in it's parent scope, then it's grandparent. In this way it finds the values. This is chain of lexical environments is called **Scope chaining**.
 
 If the variable is not found in any scope, a ReferenceError is thrown.
 
-**TYPES of Scopes in JavaScript**
-
-**Global Scope:**
-1. Variables and functions declared outside of any function or block.
-2. Accessible from anywhere in the code.
-3. Forms the top of the scope chain.
-
-**Function Scope:**
-1. Variables declared inside a function.
-2. Accessible only within that function and its nested scopes.
-
-**Block Scope:**
-1. Variables declared with let and const inside a block (e.g., {}).
-2. Accessible only within that block.
-
 ```javascript
-const globalVar = "I am global";
+    const globalVar = "I am global";
 
-function outer() {
-    const outerVar = "I am outer";
+    function outer() {
+        const outerVar = "I am outer";
 
-    function inner() {
-        const innerVar = "I am inner";
+        function inner() {
+            const innerVar = "I am inner";
 
-        console.log(globalVar); // "I am global"
-        console.log(outerVar);  // "I am outer"
-        console.log(innerVar);  // "I am inner"
+            console.log(globalVar); // "I am global"
+            console.log(outerVar);  // "I am outer"
+            console.log(innerVar);  // "I am inner"
+        }
+
+        inner();
     }
 
-    inner();
-}
-
-outer();
+    outer();
 ```
+
+* Lexical environment of inner() is it's local env as well as it's parent- outer().
+* Lexical environment of outer() is it's local env as well as it's parent- global().
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are different types of Scopes in JavaScript
+
+**Global Scope:**
+* accessible throughout the entire program
+* Forms the top of the scope chain.
+
+**Function Scope:**
+* Variables declared inside a function.
+* Accessible only within that function and its nested scopes.
+
+**Block Scope:**
+* Variables declared with let and const inside a block (e.g., {}).
+* Accessible only within that block.
 
 
 
