@@ -432,7 +432,7 @@ Block Scope means what all variables & constants can we use inside this block { 
 ```
 <div>
 <p align="center">
-    <img src="./images/blockScope.png" alt="Javascript Engine" width="70%">
+    <img src="./images/blockScope.png" alt="BlockScope" width="70%">
 </p>
 </div>
 
