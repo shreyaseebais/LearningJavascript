@@ -972,7 +972,7 @@ Eg.
 **[⬆ Back to Top](#table-of-contents)**
 
 ### What is Callback Hell ?
-    Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) where multiple nested callbacks make code difficult to read, understand, and maintain. It typically occurs when developers try to execute multiple asynchronous operations one after another, where each operation depends on the result of the previous one.
+Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) where multiple nested callbacks make code difficult to read, understand, and maintain. It typically occurs when developers try to execute multiple asynchronous operations one after another, where each operation depends on the result of the previous one.
 
 ```javascript
     getDataFromAPI(function (response1) {
@@ -1006,8 +1006,7 @@ This code:
 **[⬆ Back to Top](#table-of-contents)**
 
 ### What are the Solutions to Avoid Callback Hell ? 
-```javascript
-```
+
 1. Use Named Functions
 Instead of nesting anonymous callback functions, use named functions to improve readability.
 
