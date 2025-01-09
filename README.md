@@ -508,6 +508,27 @@ Hence below code is Legal
     }
 ```
 
+Eg 4.  
+
+Below consts are making Legal shadowing
+
+```javascript
+    const a = 10;
+    {
+        const a=20;
+        {
+            const a=30;
+            console.log(a);                 //30
+        }
+        console.log(a);                     //20
+    }
+    console.log(a);                         //10
+```
+
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 6. What is the this Keyword in JavaScript? 
