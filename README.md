@@ -595,6 +595,10 @@ This is achieved using:
     fetchData();
 ```
 
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 9. What is Strict mode in javascript?
@@ -714,6 +718,7 @@ delete x; // Error: Cannot delete variable declared with let
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 10. What is Function ?
@@ -821,6 +826,7 @@ console.log(greet("Alice")); // Output: Hello, Alice!
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 13. What are Pure Functions?
@@ -831,6 +837,8 @@ function square(x) {
   return x * x;
 }
 ```
+
+
 
 
 
@@ -847,6 +855,7 @@ function calculate(operation, a, b) {
 const add = (x, y) => x + y;
 console.log(calculate(add, 3, 5)); // Output: 8
 ```
+
 
 
 
@@ -888,6 +897,7 @@ console.log(greet("Alice")); // Output: Hello, Alice!
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 17. What is Function Expression?
@@ -906,6 +916,10 @@ Examples:
 
 A function expression cannot be hoisted(cannot be used before it's defined). Unlike Function declaration which can be Hoisted (can be used before it's defined).
 
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 18. What is Named Function Expression ? 
@@ -921,6 +935,37 @@ The function has a name, which is useful for debugging or recursion.
 
 ```
 
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### When to Use XMLHttpRequest?
+* Use XMLHttpRequest if you need to support very old browsers.
+* Otherwise, prefer fetch() for modern, cleaner, and more readable code.
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is XMLHttpRequest?
+* A JavaScript object used to send HTTP or HTTPS requests to a server and load the response data back into the script.
+* It works asynchronously by default, so the user experience isn't interrupted.
+
+Eg.
+```javascript
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.example.com/submit', true);
+    xhr.setRequestHeader('Content-Type', 'application/json'); // Set the content type
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log('Response:', xhr.responseText);
+    }
+    };
+    const data = JSON.stringify({ name: 'John', age: 30 });
+    xhr.send(data); // Send the JSON payload
+```
 
 
 
@@ -949,12 +994,19 @@ Adds, removes, or replaces elements in an array.
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### 10. How can you create a shallow copy of an array using slice()?
 
 ```javascript
-   console.log('xyz');
+   const arr = [1, 2, 3];
+const copy = arr.slice(); // Creates a shallow copy of the array
+
+console.log(copy);  // Output: [1, 2, 3]
+console.log(arr);   // Output: [1, 2, 3]
+console.log(copy === arr); // Output: false (different references)
+
 ```
 
 
