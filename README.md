@@ -148,6 +148,20 @@ Each execution context goes through two phases:
 
 **Lexical Scope** (or static scope) refers to the scope determined by the position of variables and functions in the source code. It means that a function's scope is defined during its creation, based on where it is written in the code, not where it is called.
 
+
+```javascript
+function a(){
+    var b=10;
+    c();
+    function c(){
+
+    }
+}
+```
+Here,
+* c is lexically inside a 
+* a is lexically inside global scope.
+
 **this Binding:**
 1. Refers to the object associated with the execution context.
 2. In the global context, this refers to the global object (window or global).
@@ -940,7 +954,7 @@ The function has a name, which is useful for debugging or recursion.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### When to Use XMLHttpRequest?
+### 19. When to Use XMLHttpRequest?
 * Use XMLHttpRequest if you need to support very old browsers.
 * Otherwise, prefer fetch() for modern, cleaner, and more readable code.
 
@@ -949,7 +963,7 @@ The function has a name, which is useful for debugging or recursion.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What is XMLHttpRequest?
+### 20. What is XMLHttpRequest?
 * A JavaScript object used to send HTTP or HTTPS requests to a server and load the response data back into the script.
 * It works asynchronously by default, so the user experience isn't interrupted.
 
@@ -971,7 +985,7 @@ Eg.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What is Callback Hell ?
+### 21. What is Callback Hell ?
 Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) where multiple nested callbacks make code difficult to read, understand, and maintain. It typically occurs when developers try to execute multiple asynchronous operations one after another, where each operation depends on the result of the previous one.
 
 ```javascript
@@ -1005,7 +1019,7 @@ This code:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What are the Solutions to Avoid Callback Hell ? 
+### 22. What are the Solutions to Avoid Callback Hell ? 
 
 1. Use Named Functions
 
@@ -1084,7 +1098,7 @@ async/await syntax makes asynchronous code look synchronous and is more readable
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What is a Promise?
+### 23. What is a Promise?
 
 A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It provides a cleaner way to handle asynchronous tasks compared to callbacks.
 
@@ -1141,7 +1155,7 @@ To consume or handle the result of a promise, you use the .then() and .catch() m
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What is better alternative to XMLHttpRequest?
+### 24. What is better alternative to XMLHttpRequest?
 
 Fetch API is a modern interface in JavaScript for making HTTP requests. It provides a cleaner and more powerful alternative to the older XMLHttpRequest. 
 
@@ -1188,9 +1202,55 @@ Example
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### xyz 
+### 25. Can you throw an Error manually ?
+In JavaScript, you can throw an error manually using the throw statement. This is useful when you want to stop code execution and handle exceptional cases explicitly, such as invalid input, failed operations, or custom error conditions.
+
+Eg. 
+```javascript
+    function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed!");
+    }
+    return a / b;
+    }
+
+    try {
+    console.log(divide(10, 0)); // This will throw an error
+    } catch (error) {
+    console.error("Error caught:", error.message); // Handle the error
+    }
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 26. Undefined vs Not defined in Javascript?
+
+Javascript is also called loosely typed/weakly typed language. 
+* Undefined :Variable is defined but no value
+* Not defined: Not defined itself. 
+
+```javascript
+    var a;
+    console.log(a);             //undefined
+    a=10;
+    console.log(a);             //10 - defined
+    console.log(b);             //Not defined error
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 27. xyz 
 ```javascript
 ```
+
+
+
 
 
 
@@ -1204,12 +1264,38 @@ Example
 
 
 
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### xyz 
 ```javascript
 ```
 
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
 
 
 
