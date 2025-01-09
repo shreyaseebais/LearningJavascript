@@ -971,6 +971,88 @@ Eg.
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### What is Callback Hell ?
+    Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) where multiple nested callbacks make code difficult to read, understand, and maintain. It typically occurs when developers try to execute multiple asynchronous operations one after another, where each operation depends on the result of the previous one.
+
+```javascript
+    getDataFromAPI(function (response1) {
+        processData(response1, function (response2) {
+            saveDataToDB(response2, function (response3) {
+                generateReport(response3, function (response4) {
+                    console.log('Report generated successfully!');
+                }, function (error) {
+                    console.error('Error in report generation:', error);
+                });
+            }, function (error) {
+            console.error('Error in saving data:', error);
+            });
+        }, function (error) {
+            console.error('Error in processing data:', error);
+        });
+    }, function (error) {
+    console.error('Error in fetching data:', error);
+    });
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz 
+```javascript
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ### 19. What are Slice and Splice methods in JS? What are differences? 
 
 **slice()**
