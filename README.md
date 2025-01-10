@@ -532,6 +532,323 @@ Below consts are making Legal shadowing
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### What is Closure ?
+
+Closure is a combination of function bundled together with it's lexical environment.
+
+OR
+
+Each and every function in JS has access to it's lexical environment that is all the variables, it's parent functions present. 
+If this function is executed in some other scope it still remembers the variables it is bound with. This function is closure.
+
+Eg 1.
+
+```javascript
+    function outerFunction() {
+        let outerVariable = "I'm from outer";
+
+        function innerFunction() {
+            console.log(outerVariable); // Accessing outer function's variable
+        }
+
+        return innerFunction;
+    }
+
+    const closureFunc = outerFunction(); // Returns innerFunction
+    closureFunc(); // Output: "I'm from outer"
+
+```
+
+Eg 2. 
+
+```javascript
+    function createCounter() {
+        let count = 0; // Private variable
+
+        return function () {
+            count++;
+            return count;
+        };
+    }
+
+    const counter = createCounter(); // Returns the inner function
+    console.log(counter()); // Output: 1
+    console.log(counter()); // Output: 2
+    console.log(counter()); // Output: 3
+
+```
+
+```javascript
+    function Counter() {
+        var count = 0; // Private variable
+
+        this.incrementCounter = function () {
+            count++;
+            console.log(count);
+        };
+        this.decrementCounter = function () {
+            count--;
+            console.log(count);
+        };
+    }
+
+    var counter1 = Counter(); 
+    counter1.incrementCounter();
+    counter1.incrementCounter();
+    counter1.decrementCounter();
+
+    var counter2 = Counter();
+    counter2.incrementCounter();
+    counter2.incrementCounter();
+    counter2.incrementCounter();
+
+```
+
+Eg 3. 
+
+```javascript
+    function createFunctions() {
+        let funcs = [];
+
+        for (let i = 0; i < 3; i++) {
+            funcs.push(function () {
+                console.log(i); // Captures the current value of `i`
+            });
+        }
+
+        return funcs;
+    }
+
+    const functions = createFunctions();
+    functions[0](); // Output: 0
+    functions[1](); // Output: 1
+    functions[2](); // Output: 2
+
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Where are closure used?
+
+Few places where closure is used : 
+* Module Design pattern
+* Currying
+* Functions like once
+* memoize
+* Maintaining state like in async world
+* setTimeouts
+* iterators
+* Many more ....
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### setTimeOut with closure 
+
+Issue : 
+```javascript
+function x()  {
+    for(var i=0; i<=5; i++){
+        setTimeout(function()=>{
+            console.log(i);
+        }, i*1000);
+    }
+    console.log('Hello World !')
+}
+
+x();
+```
+Above code will give output
+
+Hello World !
+6
+6
+6
+6
+6
+
+Loop didn't wait for the first i*1000ms but it went upto 5 immediately.
+Hence i became 1 to 6 before first timeout completion itself.
+
+
+
+In the below code, by using let everytime in settimeout, i is assigned with new value.
+```javascript
+function x()  {
+    for(let i=0; i<=5; i++){
+        setTimeout(function()=>{
+            console.log(i);
+        }, i*1000);
+    }
+    console.log('Hello World !')
+}
+
+x();
+```
+Above code will give output
+
+Hello World !
+1
+2
+3
+4
+5
+6
+
+
+If not let, Above issue can be solved by closure : 
+
+```javascript
+function x()  {
+    for(let i=0; i<=5; i++){
+        function close(x){
+            setTimeout(function()=>{
+            console.log(x);
+        }, *1000);
+        }
+        close(i);
+    }
+    console.log('Hello World !')
+}
+
+x();
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+### What are some issues with closure?
+
+1. Increased Memory Usage
+Closures keep references to their outer scope even after the outer function has finished execution. This can prevent garbage collection from freeing up memory.
+
+```javascript
+function createCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = createCounter();
+// `count` is retained in memory even after `createCounter` is executed.
+```
+Impact: If closures are created in large numbers or within loops, they can lead to high memory consumption.
+
+
+2. Potential for Memory Leaks
+If closures inadvertently keep references to unnecessary data, it can lead to memory leaks.
+
+```javascript
+function leakyFunction() {
+  const largeData = new Array(1000000).fill('leak');
+  return function () {
+    console.log('Holding onto largeData!');
+  };
+}
+
+const leaky = leakyFunction();
+// The `largeData` array is never released because the closure retains a reference to it.
+
+```
+Impact: Retaining large objects in closures unnecessarily can degrade application performance.
+
+
+
+3. Debugging Complexity
+Debugging closures can be challenging, especially when nested deeply. The retained scope can make it hard to track down the exact value of variables or identify unintended side effects.
+
+```javascript
+function outer() {
+  let outerVar = 'outer';
+  return function inner() {
+    console.log(outerVar);
+  };
+}
+const fn = outer();
+// Tracking `outerVar` when debugging can be confusing if the scope is complex.
+
+```
+
+4. Performance Overhead
+Closures may introduce performance overhead, as they require the JavaScript engine to maintain references to outer scopes.
+
+Example: If closures are overused in performance-critical code (e.g., tight loops), they may slow down execution due to the constant creation and maintenance of Lexical Environments.
+
+5. Overuse and Readability Issues
+
+Overuse of closures can make code harder to read and maintain, especially for developers unfamiliar with the codebase.
+
+```javascript
+function outer() {
+  return function () {
+    return function () {
+      console.log('Nested closure');
+    };
+  };
+}
+outer()()();
+
+```
+Excessive nesting can confuse readers and obscure the intent of the code.
+
+
+6. Unintended Access to Private Variables
+
+Closures can expose variables meant to be private, leading to potential security or integrity risks.
+
+```javascript
+function secretHolder() {
+  let secret = 'hidden';
+  return {
+    getSecret: () => secret,
+    setSecret: (newSecret) => (secret = newSecret),
+  };
+}
+
+const secret = secretHolder();
+console.log(secret.getSecret()); // 'hidden'
+secret.setSecret('exposed');
+console.log(secret.getSecret()); // 'exposed'
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How to mitigate these Drawbacks of Closure?
+* Be Selective:
+Use closures only when necessary, and avoid overusing them.
+* Avoid Retaining Unnecessary References:
+Ensure closures do not unnecessarily hold onto large data structures or unused variables.
+* Use let and const:
+Prefer block-scoped variables to avoid unexpected behavior in loops or nested closures.
+* Profile and Optimize:
+Use tools like Chrome DevTools or memory profilers to monitor memory usage and detect leaks.
+* Comment and Document:
+Add comments to clarify why a closure is used, especially in complex or nested scenarios.
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ### 6. What is the this Keyword in JavaScript? 
 In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined.
 
