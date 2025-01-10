@@ -333,11 +333,48 @@ while below code gives TypeError: Assignment to constant variable not allowed.
 ```
 
 below code gives Reference error: y is not defined.
-        ```javascript
-            console.log(y);
-            let a = 10;
-            let b = 20;
-        ```
+```javascript
+    console.log(y);
+    let a = 10;
+    let b = 20;
+```
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Garbage collector?
+The Garbage Collector (GC) is a mechanism in programming languages, including JavaScript, that automatically manages memory by reclaiming unused memory and freeing it for reuse. It helps developers avoid manual memory management, reducing the risk of memory leaks and errors.
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Can you explain Garbage collection happening in a Closure?
+
+```javascript
+    function  a(){
+        var x= 0; 
+        var z= 10;
+        return function b(){
+            console.log(x);
+        }
+    }
+
+    var y = a();
+    //...
+
+    y();
+```
+* On calling y() hence a() . 
+* As b() is returned which uses var x. b() has formed a closure with x. Hence x has to be remembered. Hence x wil not be garbage collected. It will keep occupied the memory.
+* While z is independent hence z is garbage collected. 
 
 
 
@@ -1226,6 +1263,7 @@ You cannot delete a variable, function, or object declared in strict mode.
 "use strict";
 let x = 10;
 delete x; // Error: Cannot delete variable declared with let
+
 ```
 
 
@@ -1233,37 +1271,54 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. What is Function ?
-
+### 10. What is a Function ?
 In JavaScript, a function is a block of reusable code designed to perform a specific task. Functions are fundamental building blocks in JavaScript, allowing you to structure code into manageable and reusable components.
 
-**Defining a Function**
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are the ways for Defining a Function ?
 
 Functions can be defined in several ways:
+ 1. Function Declaration / Function Statement
+ 2. Function Expression
+ 3. Arrow Function (ES6)
+ 4. Anonymous Function
+ 5. Constructor Function
 
-* 1. Function Declaration
 
-Declares a named function using the function keyword.
+### What is Function Statement ?
+It is a statement or declaration of a function using the function keyword.
+
 ```javascript
 function greet(name) {
   return `Hello, ${name}!`;
 }
-
-console.log(greet("Alice")); // Output: Hello, Alice!
 ```
 
-* 2. Function Expression
 
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Function Expression ?
 Assigns an anonymous (or named) function to a variable.
 
 ```javascript
 const greet = function(name) {
   return `Hello, ${name}!`;
 };
-
-console.log(greet("Bob")); // Output: Hello, Bob!
 ```
-* 3. Arrow Function (ES6)
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is an Arrow Function (ES6) ?
 
 A shorter syntax for writing functions, using the => arrow.
 
@@ -1273,16 +1328,32 @@ const greet = (name) => `Hello, ${name}!`;
 console.log(greet("Charlie")); // Output: Hello, Charlie!
 ```
 
-* 4.  Anonymous Function
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is  Anonymous Function ?
 
 A function without a name, often used as an argument in higher-order functions.
 ```javascript
-setTimeout(function() {
-  console.log("This is an anonymous function");
-}, 1000);
+    function(){
+        
+    }
 ```
 
-* 5. Constructor Function
+```javascript
+    setTimeout(function() {
+    console.log("This is an anonymous function");
+    }, 1000);
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Constructor Function ?
 
 A function used with new to create objects.
 
@@ -1297,15 +1368,25 @@ console.log(person1.name); // Output: David
 ```
 
 
-**Calling a Function**
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are the ways to Call a Function ?
+
 A function is executed when it is called or invoked.
 ```javascript
-function add(a, b) {
-  return a + b;
-}
+    function add(a, b) {
+    return a + b;
+    }
 
-console.log(add(3, 5)); // Output: 8
+    console.log(add(3, 5)); // Output: 8
 ```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### 11. What are Parameters and Arguments ?
 Parameters: Variables defined in the function definition.
@@ -1391,7 +1472,7 @@ A function that runs immediately after being defined.
 
 ### 16. What are Anonymous Functions?
 
-The function has no name and is assigned directly to a variable.
+A function without a name is called Anonymous function.. It is assigned directly to a variable.
 ```javascript
 const numbers = [1, 2, 3];
 numbers.forEach(function(num) {
