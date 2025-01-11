@@ -1422,25 +1422,6 @@ console.log(greet("Charlie")); // Output: Hello, Charlie!
 
 
 
-**[⬆ Back to Top](#table-of-contents)**
-
-### What is  Anonymous Function ?
-
-A function without a name, often used as an argument in higher-order functions.
-```javascript
-    function(){
-        
-    }
-```
-
-```javascript
-    setTimeout(function() {
-    console.log("This is an anonymous function");
-    }, 1000);
-```
-
-
-
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -1551,15 +1532,51 @@ function square(x) {
 
 ### 14. What are Higher-Order Functions?
 
-Functions that take other functions as arguments or return them.
-```javascript
-function calculate(operation, a, b) {
-  return operation(a, b);
-}
+Higher-Order Functions are the functions that take other functions as arguments OR returns a function from them.
 
-const add = (x, y) => x + y;
-console.log(calculate(add, 3, 5)); // Output: 8
+```javascript
+    function calculate(operation, a, b) {
+        return operation(a, b);
+    }
+
+    const add = (x, y) => x + y;
+    console.log(calculate(add, 3, 5)); // Output: 8
 ```
+
+Because calculate is taking add as an argument, calculate is a Higher order function.
+
+Another example to calculate area perimeter of circle :
+
+```javascript
+    const arr = [1,3,5,6,7]
+
+    const area = function(radius){
+        return Math.PI * radius * radius;
+    }
+
+    const circumference = function(radius){
+        return 2 * Math.PI * radius;
+    }
+
+    const area = function(radius){
+        return radius * radius;
+    }
+
+    const calculate = function (radiusArr, callbackFunc){
+        const output = [];
+        for(let i=0; i<radiusArr.length; i++){
+            output.push(callbackFunc(radiusArr[i]))
+        }
+        return output;
+    }
+
+    console.log(calculate(arr, area))
+    console.log(calculate(arr, circumference))
+    console.log(calculate(arr, diameter))
+```
+
+* Here calculate is higher order function
+* area, circumference, diameter are used as callbacks in calculate()
 
 
 
@@ -1586,18 +1603,18 @@ A function that runs immediately after being defined.
 
 A function without a name is called Anonymous function.. It is assigned directly to a variable.
 ```javascript
-const numbers = [1, 2, 3];
-numbers.forEach(function(num) {
-  console.log(num);
-});
+    const numbers = [1, 2, 3];
+    numbers.forEach(function(num) {
+    console.log(num);
+    });
 ```
 
 ```javascript
-const greet = function(name) {
-  return `Hello, ${name}!`;
-};
+    const greet = function(name) {
+    return `Hello, ${name}!`;
+    };
 
-console.log(greet("Alice")); // Output: Hello, Alice!   
+    console.log(greet("Alice")); // Output: Hello, Alice!   
 ```
 
 
@@ -1969,8 +1986,110 @@ Javascript is also called loosely typed/weakly typed language.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 27. xyz 
+### 27. What is Map function ? How do you use it ?
+
+Eg. Find double, triple & binary for of given array 
 ```javascript
+    const arr = [2,3,5,6,9];
+
+    function double(x){
+        return x*2;
+    }
+
+    function triple(x){
+        return x*3;
+    }
+
+    function binary(x){
+        return x.toString(2);
+    }
+
+    const doubledOutput = arr.map(double)
+    const tripledOutput = arr.map(triple)
+    const binaryOutput = arr.map(binary)
+```
+
+You may also pass the function declaration directly :
+
+```javascript
+    const arr = [2,3,5,6,9];
+    // function double(x){
+    //     return x*2;
+    // }
+    const doubledOutput = arr.map(function binary(x){
+        return x*2;
+    })
+  
+```
+OR
+```javascript
+    const arr = [2,3,5,6,9];
+    // function double(x){
+    //     return x*2;
+    // }
+    const doubledOutput = arr.map((x)=>{
+        return x*2;
+    })
+  
+```
+
+Eg. Return only firstname+lastname from the array
+```javascript
+    const users = [
+        {firstName: "Elon", lastName: "Musk", age: 55},
+        {firstName: "Donald", lastName: "Trump", age: 70},
+        {firstName: "Narendra", lastName: "Modi", age: 75},
+        {firstName: "Warren", lastName: "Buffet", age: 95},
+    ];
+
+    const output = users.map((obj)=> obj.firstName + " " + obj.lastName);
+```
+**Result**
+ [ "Elon Musk", "Donald Trump", "Narendra Modi", "Warren Buffet"];
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Filter function? How do you use it?
+
+```javascript
+
+    const arr = [2,3,5,6,9];
+    
+    function isEven(x){
+        return x%2 == 0
+    }
+
+    function isOdd(x){
+        return x%2 !== 0
+    }
+
+    const evenOutput = arr.filter(isEven)
+    const oddOutput = arr.filter(isOdd)
+```
+OR
+```javascript
+
+    const arr = [2,3,5,6,9];
+    
+    // function isEven(x){
+    //     return x%2 == 0
+    // }
+
+    // function isOdd(x){
+    //     return x%2 !== 0
+    // }
+
+    const evenOutput = arr.filter(function isEven(x){
+        return x%2 == 0
+    })
+    const oddOutput = arr.filter((x)=> {
+        return x%2 !== 0
+    })
 ```
 
 
@@ -1981,27 +2100,51 @@ Javascript is also called loosely typed/weakly typed language.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### xyz 
+### What is Reduce function ?
+
 ```javascript
+    const arr = [1,2,4,6,8,10];
+
+    const sumOfAllNum = arr.reduce(function(accumulator, current){
+        accumulator = accumulator + current;
+        return accumulator;
+    }, 0);
+
+    console.log(sumOfAllNum);
 ```
 
-
-
-
-
-
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### xyz 
+Find maximum of the array :
 ```javascript
+    const arr = [1,2,4,6,8,10];
+
+    const maxi = arr.reduce(function(accumulator, current){
+        return current>accumulator ? current : accumulator;
+    }, 0);
+
+    console.log(sumOfAllNum);
 ```
 
+Eg. Find number of people by age group 
+```javascript
+ const users = [
+        {firstName: "Elon", lastName: "Musk", age: 55},
+        {firstName: "Donald", lastName: "Trump", age: 75},
+        {firstName: "Narendra", lastName: "Modi", age: 75},
+        {firstName: "Warren", lastName: "Buffet", age: 95},
+ ];
 
+ const groupByAge = users.reduce(function(accumulator,current){
+    if(accumulator[current.age]){
+        accumulator[current.age] = ++accumulator[current.age]
+    }else{
+        accumulator[current.age] = 1;
+    }
+ },{})
 
+```
 
-
-
+**Result**
+[55:1 , 75:2, 95:1]
 
 **[⬆ Back to Top](#table-of-contents)**
 
