@@ -48,7 +48,42 @@
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
+
+### What is Compiler?
+* A compiler is a program that translates the entire code written in a programming language (source code) into machine code or an intermediate language that a computer can execute. 
+* This process happens before the program runs.
+* It is more efficient than Interpreter.
+
+Eg. C, C++, Go, Java are Compiled languages
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Interpreter?
+* An interpreter is a type of program that directly executes instructions written in a programming or scripting language without needing to first compile them into machine code. 
+* It processes the code line by line or statement by statement at runtime.
+* It is faster than compiler. 
+
+Eg. Python, Ruby, Javascript are Interpreted languages.
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Is Javascript Interpreted or Compiled language? 
+* Initially when launched, Javascript was only interpreter language, because browers had to quickly use the code.
+* Now most of the browsers use Interpreter + Compiler .
+* It depends on JS  Engine whether the code is simply interpreted or JIT compiled.
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 
 ### 1. What is a JavaScript Engine?
 A JavaScript engine is a program or interpreter that executes JavaScript code. It is responsible for parsing, optimizing, and running the code written in JavaScript, enabling it to interact with web pages, servers, and other applications.
@@ -669,7 +704,7 @@ Eg 3.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Where are closure used?
+### Where are Closures used?
 
 Few places where closure is used : 
 * Module Design pattern
@@ -690,7 +725,7 @@ Few places where closure is used :
 
 ### setTimeOut with closure 
 
-Issue : 
+**Issue : **
 ```javascript
 function x()  {
     for(var i=0; i<=5; i++){
@@ -716,6 +751,7 @@ Loop didn't wait for the first i*1000ms but it went upto 5 immediately.
 Hence i became 1 to 6 before first timeout completion itself.
 
 
+**Solution :**
 
 In the below code, by using let everytime in settimeout, i is assigned with new value.
 ```javascript
@@ -740,8 +776,9 @@ Hello World !
 5
 6
 
+**Solution with Closure :**
 
-If not let, Above issue can be solved by closure : 
+If we don't want to use let, Above issue can be solved by closure : 
 
 ```javascript
 function x()  {
@@ -764,10 +801,9 @@ x();
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 ### What are some issues with closure?
 
-1. Increased Memory Usage
+**1. Increased Memory Usage**
 Closures keep references to their outer scope even after the outer function has finished execution. This can prevent garbage collection from freeing up memory.
 
 ```javascript
@@ -785,7 +821,7 @@ const counter = createCounter();
 Impact: If closures are created in large numbers or within loops, they can lead to high memory consumption.
 
 
-2. Potential for Memory Leaks
+**2. Potential for Memory Leaks**
 If closures inadvertently keep references to unnecessary data, it can lead to memory leaks.
 
 ```javascript
@@ -804,7 +840,7 @@ Impact: Retaining large objects in closures unnecessarily can degrade applicatio
 
 
 
-3. Debugging Complexity
+**3. Debugging Complexity**
 Debugging closures can be challenging, especially when nested deeply. The retained scope can make it hard to track down the exact value of variables or identify unintended side effects.
 
 ```javascript
@@ -819,12 +855,12 @@ const fn = outer();
 
 ```
 
-4. Performance Overhead
+**4. Performance Overhead**
 Closures may introduce performance overhead, as they require the JavaScript engine to maintain references to outer scopes.
 
 Example: If closures are overused in performance-critical code (e.g., tight loops), they may slow down execution due to the constant creation and maintenance of Lexical Environments.
 
-5. Overuse and Readability Issues
+**5. Overuse and Readability Issues**
 
 Overuse of closures can make code harder to read and maintain, especially for developers unfamiliar with the codebase.
 
@@ -842,7 +878,7 @@ outer()()();
 Excessive nesting can confuse readers and obscure the intent of the code.
 
 
-6. Unintended Access to Private Variables
+**6. Unintended Access to Private Variables**
 
 Closures can expose variables meant to be private, leading to potential security or integrity risks.
 
@@ -879,6 +915,60 @@ Use tools like Chrome DevTools or memory profilers to monitor memory usage and d
 * Comment and Document:
 Add comments to clarify why a closure is used, especially in complex or nested scenarios.
 
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How does setTimeout work using Global Execution Context ?
+
+```javascript
+    console.log('Start');
+    setTimeout (function(){
+        console.log('Callback here !')
+    }, 5000)
+
+    console.log('Line #1')
+    console.log('Line #2')
+    console.log('Line #3')
+    console.log('Line #4')
+    //
+    //
+    //
+    console.log('Line #1million')
+```
+* Yaha pehle start GEC me jayega, turant print hoga.
+* fir settimeout webAPI me jaake 5000ms spend karega. (5000ms spend hone k baad Call Queue me wait kar raha hoga)
+* fir console.log('Line#1') se console.log('Line #1M') tak GEC me lekar print kar raha hoga.
+* Jab GEC free ho jayega apne stacked kaamo se, uske baad hi Eventloop call stack se Callback here! ko lekar GEC me daalega. Jab tak GEC empty nahi hai eventloop use naya kaam nahi pakdaata.
+* Jab free GEC k paas Callback ayega, GEC immediate use output karega.
+
+
+Try out with below example :
+```javascript
+    console.log('Start');
+    setTimeout (function(){
+        console.log('Callback here !')
+    }, 5000)
+
+    //Print million lines
+    let startDate = new Date.getTime();
+    let endDate = startDate;
+    while(endDate < startDate+10000){
+        console.log('Printing lines for 10000ms')
+    }
+    console.log('Printed lines for last 10000ms')
+
+```
+
+**Output: **
+* Start
+* Printing lines for 10000ms 
+* ......
+* Printed lines for last 10000ms
+* Callback here !
 
 
 
@@ -1276,6 +1366,7 @@ In JavaScript, a function is a block of reusable code designed to perform a spec
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### What are the ways for Defining a Function ?
@@ -1288,6 +1379,10 @@ Functions can be defined in several ways:
  5. Constructor Function
 
 
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What is Function Statement ?
 It is a statement or declaration of a function using the function keyword.
 
@@ -1296,8 +1391,6 @@ function greet(name) {
   return `Hello, ${name}!`;
 }
 ```
-
-
 
 
 
@@ -1311,8 +1404,6 @@ const greet = function(name) {
   return `Hello, ${name}!`;
 };
 ```
-
-
 
 
 
@@ -1346,6 +1437,27 @@ A function without a name, often used as an argument in higher-order functions.
     setTimeout(function() {
     console.log("This is an anonymous function");
     }, 1000);
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is First Class Function ?
+
+The ability of functions to be used as values and can be passed to as arguments to other functions and can be returned from functions. This ability is called as first class functions. 
+
+Also called First class citizens.
+
+OR 
+
+First class functions are :
+* Ability to be passed as argument to other functions.
+* Abitility to be returned by other functions. 
+
+```javascript
+
 ```
 
 
@@ -1527,6 +1639,39 @@ The function has a name, which is useful for debugging or recursion.
     console.log(factorial(5)); // Output: 120
 
 ```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Callback?
+
+A function passed to another function is called Callback function.
+
+For eg. Here y is passed as an argument from x. Hence y is a callback function.
+
+Once x received it, it decides what to do with the parameter.
+```javascript
+    function x(i){
+        i();
+    }
+
+    x(function y() {
+        console.log('y')
+    }) 
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+### Garbage collection and Remove Event Listeners
+
+
 
 
 
