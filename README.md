@@ -1920,7 +1920,7 @@ Once a promise is fulfilled or rejected, it becomes settled, and its state can n
 You create a promise using the Promise constructor, which takes a function (called the executor) as its argument.
 This executor function has two parameters: resolve and reject.
 
-* resolve: Call this function when the operation is successful.
+* resolve: Call this function when the operation is successful(also called fulfilled).
 * reject: Call this function when the operation fails.
 
 ```javascript 
@@ -1934,8 +1934,6 @@ This executor function has two parameters: resolve and reject.
     });
 
 ```
-
-
 ```javascript
     const cart = ['shoes','pantaloons', 'shirts'];
 
@@ -2022,10 +2020,13 @@ To consume or handle the result of a promise, you use the .then() and .catch() m
     });
 ```
 
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### Explain use of promise horizontally vs vertically
-
 Following code is horizontally growing : 
 What is it doing? Ek function response pe dusra function dusre response pe teesra function. 
 ```javascript
@@ -2077,6 +2078,7 @@ proceedToPayment par directly dusra call kar diya hai. Wait for it to resolve, t
 
 
 
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### What are Promise APIs ?
@@ -2092,7 +2094,9 @@ proceedToPayment par directly dusra call kar diya hai. Wait for it to resolve, t
 
 **Promise.all(promises)** 
 
-Runs multiple promises in parallel and waits until all are resolved (or one is rejected)
+* Runs multiple promises in parallel and waits until all are resolved (or one is rejected)
+* Saare success ka wait karega
+* Ek bhi fail hua toh aage nahi badhega, turant failure output
 
 ```javascript
     const p1 = Promise.resolve(1);                  // resolves in 5sec
@@ -2114,7 +2118,9 @@ Runs multiple promises in parallel and waits until all are resolved (or one is r
 
 **Promise.allSettled(promises)**
 
-Runs multiple promises in parallel and waits until all are settled (either resolved or rejected)
+* Runs multiple promises in parallel and waits until all are settled (either resolved or rejected)
+* Sab settle hone k baad hi output dega
+* Agar ek fail bhi hua toh sabke settle hone ka wait karega uske baad hi output dega.
 
 ```javascript
     const p1 = Promise.resolve(1);                  // resolves in 5sec
@@ -2132,9 +2138,12 @@ Runs multiple promises in parallel and waits until all are settled (either resol
     // ]
 ```
 
+
+
 **Promise.race(promises)**
+
 * Returns a promise that resolves or rejects as soon as the first promise in the array settles.
-* Yeh ek race hai. First promise jab bhi settle hoga, be it resolve or reject, wahi final output hoga.
+* Yeh ek race hai. Jab bhi koi ek bhi promise settle hoga, be it resolve or reject, wahi final output hoga.
 
 ```javascript
 const p1 = new Promise((resolve) => setTimeout(() => resolve("P1"), 100));
@@ -2149,6 +2158,30 @@ const p2 = new Promise((resolve) => setTimeout(() => resolve("P2"), 200));
 
 Promise.race([p1, p2]).then((result) => console.log(result)); // Output: "P1 Err"
 ```
+
+
+
+**Promise.any(promises)**
+
+* Returns the first promise that fulfills (ignores rejections). If all promises reject, it throws an AggregateError.
+* It is like promise.race but it is a success seeking race.
+* Yeh bas pehle success ke liye wait karta rehta hai. Ek success mila ki output.
+
+```javascript
+const p1 = Promise.reject("Error1");
+const p2 = new Promise((resolve) => setTimeout(() => resolve("Success"), 200));
+const p3 = Promise.reject("Error2");
+
+Promise.any([p1, p2, p3]).then((value) => console.log(value)); // Output: "Success"
+```
+```javascript
+const p1 = Promise.reject("Error1");
+const p2 = Promise.reject("Error1");
+const p3 = Promise.reject("Error2");
+
+Promise.any([p1, p2, p3]).then((value) => console.log(value)); // Aggregate error : [Error1, Error2, Error3]
+```
+
 
 
 
