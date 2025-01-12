@@ -976,152 +976,7 @@ Try out with below example :
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 6. What is the this Keyword in JavaScript? 
-In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined.
 
-|           Context	                 |               Value of this                               |
-|------------------------------------|-----------------------------------------------------------|
-| Global Scope	                     | Global object (window in browsers).                       |
-| Regular Function (non-strict)      | Global object (window in browsers).                       |   
-| Regular Function (strict mode)     | undefined.                                                |
-| Method in Object	                 | The object the method is called on.                       |
-| Constructor Function	             | The newly created object.                                 |
-| Class	                             | The instance of the class.                                |
-| Arrow Function	                 | Inherited from the enclosing lexical environment.         |
-| Event Handler	                     | The element that triggered the event.                     | 
-| Explicit Binding (call/apply/bind) |Explicitly set value.                                      |
-
-
-
-**Key Rules for this in JavaScript**
-* The value of this is determined at runtime, depending on how a function is called.
-* Arrow functions do not have their own this; they inherit it from their lexical scope.
-
-
-**How this Works in Different Contexts**
-
-* 1. Global Context
-In the global scope:
-
-* In browsers, this refers to the global object (window).
-* In Node.js, it refers to the global object (global).
-```javascript
-   console.log(this); // In browsers, outputs: window
-```
-
-```javascript
-   "use strict";
-    console.log(this); // undefined
-```
-* 2. Inside a Function
-* Non-strict Mode: this refers to the global object.
-* Strict Mode: this is undefined.
-```javascript
-   function showThis() {
-    console.log(this);
-    }
-    showThis(); // In browsers, outputs: window
-
-    "use strict";
-    function strictShowThis() {
-        console.log(this);
-    }
-    strictShowThis(); // undefined
-```
-
-* 3. Inside an Object (Method Call)
-* When a function is called as a method of an object, this refers to the object that owns the method.
-```javascript
-   const obj = {
-    name: "Alice",
-    greet: function () {
-        console.log(this.name);
-        },
-    };
-    obj.greet(); // Outputs: Alice
-
-```
-
-* 4. Inside a Constructor Function
-* In a constructor function, this refers to the newly created object.
-```javascript
-    function Person(name) {
-        this.name = name;
-    }
-
-    const person1 = new Person("Bob");
-    console.log(person1.name); // Outputs: Bob
-```
-* 5. Inside a Class
-* In a class, this refers to the instance of the class.
-```javascript
-   class Person {
-    constructor(name) {
-        this.name = name;
-    }
-
-    greet() {
-        console.log(`Hello, my name is ${this.name}`);
-        }   
-    }
-
-    const person = new Person("Alice");
-    person.greet(); // Outputs: Hello, my name is Alice
-
-```
-
-* 6. Arrow Functions
-
-* Arrow functions do not have their own this. Instead, this is lexically inherited from the surrounding scope (the value of this where the arrow function is defined).
-```javascript
-const obj = {
-    name: "Alice",
-    greet: () => {
-        console.log(this.name); // `this` refers to the global object (or undefined in strict mode)
-    },
-};
-obj.greet(); // undefined
-```
-
-* 7. In Event Handlers
-
-* this refers to the element that triggered the event.
-
-```javascript
-document.getElementById("myButton").addEventListener("click", function () {
-    console.log(this); // The button element
-});
-```
-
-
-* 8. Explicit Binding (call, apply, and bind)
-You can explicitly set the value of this using call, apply, or bind.
-
-* call: Invokes a function with a specific this value and arguments provided individually.
-* apply: Similar to call, but arguments are passed as an array.
-* bind: Returns a new function with this permanently set to the specified value.
-
-```javascript
-const person = {
-    name: "Alice",
-};
-
-function greet(greeting) {
-    console.log(`${greeting}, ${this.name}`);
-}
-
-greet.call(person, "Hello"); // Outputs: Hello, Alice
-greet.apply(person, ["Hi"]); // Outputs: Hi, Alice
-
-const boundGreet = greet.bind(person);
-boundGreet("Hey"); // Outputs: Hey, Alice
-```
-
-
-
-
-
-**[⬆ Back to Top](#table-of-contents)**
 
 ### 7. How to iterate over a JavaScript object ?
 * Using for loop
@@ -2366,6 +2221,232 @@ const pr1 = new Promise((resolve, reject)=>{
     // Promise Returned and Resolved .                          //printed in 10s
     // Hello World 2 !
 ```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How to handle errors in async await ?
+
+Like .catch in Promises. Async await uses try catch
+
+```javascript
+    const API_URL="https://xyz";
+
+    async function handlePromise(){
+        try{
+            const data = await fetch(API_URL)
+            const jsonValue = await data.json();
+            console.log(jsonValue)
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    handlePromise();
+```
+
+If you don't want to use try catch in await, you can also handle it by .catch in the promise.
+```javascript
+    const API_URL="https://xyz";
+
+    async function handlePromise(){
+        const data = await fetch(API_URL)
+        const jsonValue = await data.json();
+        console.log(jsonValue)
+    }
+
+    handlePromise().catch((err)=> console.log(err));
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is function vs method in javascript ?
+
+When a function is written inside an object it is called method.
+
+Eg.
+```javascript
+    const age=18;
+    const lastname = verma;
+    const obj= {
+        a: 10,
+        b: function(){
+            return age+20
+        },
+        c: lastName
+    }
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### 6. What is the this Keyword in JavaScript? 
+In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined. 
+
+|           Context	                 |               Value of this                               |
+|------------------------------------|-----------------------------------------------------------|
+| Global Scope	                     | Global object (window in browsers).                       |
+| Regular Function (non-strict)      | Global object (window in browsers).                       |   
+| Regular Function (strict mode)     | undefined.                                                |
+| Method in Object	                 | The object the method is called on.                       |
+| Constructor Function	             | The newly created object.                                 |
+| Class	                             | The instance of the class.                                |
+| Arrow Function	                 | Inherited from the enclosing lexical environment.         |
+| Event Handler	                     | The element that triggered the event.                     | 
+| Explicit Binding (call/apply/bind) |Explicitly set value.                                      |
+
+
+
+**Key Rules for this in JavaScript**
+* The value of this is determined at runtime, depending on how a function is called.
+* Arrow functions do not have their own this; they inherit it from their lexical scope.
+
+
+**How this Works in Different Contexts**
+
+* 1. Global Context
+In the global scope:
+
+* In browsers, this refers to the global object (window).
+* In Node.js, it refers to the global object (global).
+```javascript
+        console.log(this); // In browsers, outputs: window   In Nodejs, outputs: global
+```
+
+```javascript
+    "use strict";
+        console.log(this);          // undefined
+```
+
+
+* 2. Inside a Function
+Value of this inside a function is actually Undefined.
+* Non-strict Mode: this substitutes to the global object. Hence it is Window.
+* Strict Mode: this remains undefined.
+
+```javascript
+        function showThis() {
+            console.log(this);
+        }
+        showThis();                 // In browsers, outputs: window
+```
+
+```javascript
+        "use strict";
+        function strictShowThis() {
+            console.log(this);
+        }
+        strictShowThis();           // undefined
+        Window.strictShowThis();    // In Web browser Output: Window { }
+```
+
+
+* 3. Inside an Object (Method Call)
+* When a function is called as a method of an object, this refers to the object that owns the method.
+
+```javascript
+    const obj = {
+    name: "Alice",
+    greet: function () {
+        console.log(this.name);
+        },
+    };
+    obj.greet(); // Outputs: Alice
+
+```
+
+* 4. Inside a Constructor Function
+* In a constructor function, this refers to the newly created object.
+
+```javascript
+    function Person(name) {
+        this.name = name;
+    }
+
+    const person1 = new Person("Bob");
+    console.log(person1.name); // Outputs: Bob
+```
+
+
+* 5. Inside a Class
+* In a class, this refers to the instance of the class.
+```javascript
+   class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        console.log(`Hello, my name is ${this.name}`);
+        }   
+    }
+
+    const person = new Person("Alice");
+    person.greet(); // Outputs: Hello, my name is Alice
+
+```
+
+* 6. Inside Arrow Functions
+
+* Arrow functions do not have their own this. Instead, this is **lexically inherited from the surrounding scope** (the value of this where the arrow function is defined).
+* this aise behave karega ki wo arrow function ke andar hai hi nahi. Aur jo current lexical scope milega use le lega.
+
+```javascript
+    const obj = {
+        name: "Alice",
+        greet: () => {
+            console.log(this.name);         // `this` refers to the global object (or undefined in strict mode)
+        },
+    };
+
+    console.log(this);                      // undefined because this is in globalspace
+    obj.greet();                            // undefined because this=obj and obj is in globalspace
+```
+
+* 7. In Event Handlers
+
+* this refers to the element that triggered the event.
+
+```javascript
+document.getElementById("myButton").addEventListener("click", function () {
+    console.log(this); // The button element
+});
+```
+
+
+* 8. Explicit Binding (call, apply, and bind)
+You can explicitly set the value of this using call, apply, or bind.
+
+* call: Invokes a function with a specific this value and arguments provided individually.
+* apply: Similar to call, but arguments are passed as an array.
+* bind: Returns a new function with this permanently set to the specified value.
+
+```javascript
+const person = {
+    name: "Alice",
+};
+
+function greet(greeting) {
+    console.log(`${greeting}, ${this.name}`);
+}
+
+greet.call(person, "Hello"); // Outputs: Hello, Alice
+greet.apply(person, ["Hi"]); // Outputs: Hi, Alice
+
+const boundGreet = greet.bind(person);
+boundGreet("Hey"); // Outputs: Hey, Alice
+```
+
+
+
 
 
 **[⬆ Back to Top](#table-of-contents)**
