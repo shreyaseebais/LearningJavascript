@@ -1902,11 +1902,13 @@ A promise can be in one of three states:
 
 Promise object looks like : 
 
+```json
 Promise{
     [[Prototype]] : Promise
     [[PromiseState]] : "pending || fulfilled || rejected"
     [[PromiseResult]]: "undefined || Response" 
 }
+```
 
 Once a promise is fulfilled or rejected, it becomes settled, and its state can no longer change.
 
