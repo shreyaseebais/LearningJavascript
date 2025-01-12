@@ -1724,10 +1724,57 @@ Eg.
 
 
 
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Pros and Cons of Callbacks?
+
+**Pros of Callbacks:**
+
+* Asynchronous Programming:
+Callbacks allows the program to handle multiple tasks efficiently.
+
+* Modularity and Reusability:
+Callbacks make functions more generic by allowing custom behavior to be defined externally and passed in.
+
+* Control Flow Flexibility:
+Callbacks allow you to execute code at a specific time or after a specific event, providing fine control over the program's flow.
+
+* Simplicity in Small-Scale Programs:
+In simple cases, callbacks are easy to implement and use without additional libraries or frameworks.
+
+* Dynamic Behavior:
+Since callbacks are functions, they enable dynamic behavior in programs, adapting to varying conditions.
+
+**Cons of Callbacks:**
+
+* Callback Hell:
+Nesting multiple callbacks can make the code difficult to read, debug, and maintain.
+
+* Error Handling Complexity:
+Error propagation in callback-based code can be cumbersome, requiring explicit error callbacks or checks.
+
+* Tightly Coupled Code:
+Callbacks can lead to coupling between the caller and the callee, making the code less modular and harder to test.
+
+* Inversion of Control:
+By passing a callback, you hand over control to another function, which might execute it incorrectly or not at all.
+
+* Difficulty in Chaining:
+Chaining multiple asynchronous operations with callbacks is cumbersome compared to modern alternatives like Promises or async/await.
+
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 21. What is Callback Hell ?
-Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) where multiple nested callbacks make code difficult to read, understand, and maintain. It typically occurs when developers try to execute multiple asynchronous operations one after another, where each operation depends on the result of the previous one.
+* Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) 
+where multiple nested callbacks make code difficult to read, understand, and maintain. 
+* It typically occurs when developers try to execute multiple asynchronous operations one after another, 
+where each operation depends on the result of the previous one.
 
 ```javascript
     getDataFromAPI(function (response1) {
@@ -1754,6 +1801,7 @@ This code:
 * Is deeply nested, making it hard to read.
 * Is difficult to debug or modify because of its structure.
 * Becomes a nightmare to maintain as the complexity increases.
+
 
 
 
@@ -1852,15 +1900,16 @@ A promise can be in one of three states:
 Once a promise is fulfilled or rejected, it becomes settled, and its state can no longer change.
 
 
-**Creating a Promise in JavaScript**
-You create a promise using the Promise constructor, which takes a function (called the executor) as its argument. This executor function has two parameters: resolve and reject.
+### Explain Creating a Promise 
+You create a promise using the Promise constructor, which takes a function (called the executor) as its argument.
+This executor function has two parameters: resolve and reject.
 
 * resolve: Call this function when the operation is successful.
 * reject: Call this function when the operation fails.
 
 ```javascript 
     const myPromise = new Promise((resolve, reject) => {
-    const success = true; // Simulate success or failure
+    const success = true; // Write logic here. Simulate success or failure. 
     if (success) {
         resolve("Operation was successful!");
     } else {
@@ -1870,7 +1919,7 @@ You create a promise using the Promise constructor, which takes a function (call
 
 ```
 
-**How a Promise Returns the Promised Data**
+### How a Promise Returns the Promised Data
 To consume or handle the result of a promise, you use the .then() and .catch() methods:
 
 * .then(): Executes when the promise is fulfilled and passes the result.
@@ -2092,7 +2141,19 @@ OR
     })
 ```
 
-
+Eg. Find out the people whose age is >90 ?
+```javascript
+    const users = [
+        {firstName: "Elon", lastName: "Musk", age: 55},
+        {firstName: "Donald", lastName: "Trump", age: 70},
+        {firstName: "Narendra", lastName: "Modi", age: 75},
+        {firstName: "Warren", lastName: "Buffet", age: 95},
+    ]  ;
+    function name(x){
+        return x.firstName + " " + x.lastName;
+    }
+    result = users.filter((x)=> x.age>90).map(name)
+```
 
 
 
@@ -2139,6 +2200,7 @@ Eg. Find number of people by age group
     }else{
         accumulator[current.age] = 1;
     }
+    return acc;
  },{})
 
 ```
