@@ -2305,14 +2305,38 @@ In JavaScript, this is a special keyword that refers to the object that is execu
 
 
 
-**Key Rules for this in JavaScript**
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are the Key Rules for this in JavaScript ?
+
 * The value of this is determined at runtime, depending on how a function is called.
 * Arrow functions do not have their own this; they inherit it from their lexical scope.
 
 
-**How this Works in Different Contexts**
 
-* 1. Global Context
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Explain how this Works in Different Contexts ?
+* Global Context
+* Inside a Function
+* Inside an Object 
+* Inside a Constructor Function
+* Inside a Class
+* Inside Arrow Functions
+* In Event Handlers
+* Explicit Binding (call, apply, and bind)
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this in Global Context
 In the global scope:
 
 * In browsers, this refers to the global object (window).
@@ -2327,7 +2351,12 @@ In the global scope:
 ```
 
 
-* 2. Inside a Function
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How this works Inside a Function
 Value of this inside a function is actually Undefined.
 * Non-strict Mode: this substitutes to the global object. Hence it is Window.
 * Strict Mode: this remains undefined.
@@ -2349,7 +2378,12 @@ Value of this inside a function is actually Undefined.
 ```
 
 
-* 3. Inside an Object (Method Call)
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How this works Inside an Object (Method Call)
 * When a function is called as a method of an object, this refers to the object that owns the method.
 
 ```javascript
@@ -2363,7 +2397,12 @@ Value of this inside a function is actually Undefined.
 
 ```
 
-* 4. Inside a Constructor Function
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this Inside a Constructor Function
 * In a constructor function, this refers to the newly created object.
 
 ```javascript
@@ -2376,7 +2415,13 @@ Value of this inside a function is actually Undefined.
 ```
 
 
-5. Inside a Class
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this Inside a Class
 * In a class, this refers to the instance of the class.
 ```javascript
    class Person {
@@ -2394,7 +2439,12 @@ Value of this inside a function is actually Undefined.
 
 ```
 
-6. Inside Arrow Functions
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this Inside Arrow Functions
 
 * Arrow functions do not have their own this. Instead, this is **lexically inherited from the surrounding scope** (the value of this where the arrow function is defined).
 * this aise behave karega ki wo arrow function ke andar hai hi nahi. Aur jo current lexical scope milega use le lega.
@@ -2411,7 +2461,12 @@ Value of this inside a function is actually Undefined.
     obj.greet();                            // undefined because this=obj and obj is in globalspace
 ```
 
-7. In Event Handlers
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this in Event Handlers
 
 * this refers to the element that triggered the event.
 * In DOM element this referes to the element it is attached to. 
@@ -2425,7 +2480,10 @@ For eg. in below example this is attached to button.
 
 
 
-8. Explicit Binding (call, apply, and bind)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Working of this in Explicit Binding (call, apply, and bind)
 You can explicitly set the value of this using call, apply, or bind.
 
 * call: Invokes a function with a specific this value and arguments provided individually.
