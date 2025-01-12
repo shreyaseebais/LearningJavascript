@@ -1889,13 +1889,24 @@ async/await syntax makes asynchronous code look synchronous and is more readable
 
 ### 23. What is a Promise?
 
-A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It provides a cleaner way to handle asynchronous tasks compared to callbacks.
+A Promise in JavaScript is an object that represents the eventual completion (or failure) 
+of an asynchronous operation and its resulting value. 
+
+* It provides a cleaner way to handle asynchronous tasks compared to callbacks.
 
 A promise can be in one of three states:
 
 * Pending: The initial state, neither fulfilled nor rejected.
 * Fulfilled: The operation completed successfully, and the promise has a result.
 * Rejected: The operation failed, and the promise has a reason for failure.
+
+Promise object looks like : 
+
+Promise{
+    [[Prototype]] : Promise
+    [[PromiseState]] : "pending || fulfilled || rejected"
+    [[PromiseResult]]: "undefined || Response" 
+}
 
 Once a promise is fulfilled or rejected, it becomes settled, and its state can no longer change.
 
@@ -1918,6 +1929,11 @@ This executor function has two parameters: resolve and reject.
     });
 
 ```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### How a Promise Returns the Promised Data
 To consume or handle the result of a promise, you use the .then() and .catch() methods:
