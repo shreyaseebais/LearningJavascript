@@ -2164,7 +2164,7 @@ Promise.race([p1, p2]).then((result) => console.log(result)); // Output: "P1 Err
 **Promise.any(promises)**
 
 * Returns the first promise that fulfills (ignores rejections). If all promises reject, it throws an AggregateError.
-* It is like promise.race but it is a success seeking race.
+* It is like promise.race but it is a SUCCESS SEEKING RACE.
 * Yeh bas pehle success ke liye wait karta rehta hai. Ek success mila ki output.
 
 ```javascript
@@ -2179,11 +2179,193 @@ const p1 = Promise.reject("Error1");
 const p2 = Promise.reject("Error1");
 const p3 = Promise.reject("Error2");
 
-Promise.any([p1, p2, p3]).then((value) => console.log(value)); // Aggregate error : [Error1, Error2, Error3]
+Promise.any([p1, p2, p3])
+.then((value) => console.log(value))
+.catch((err)=> console.log(err.errors))              // Aggregate error : [Error1, Error2, Error3]
 ```
 
 
 
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+### What is async?
+The async keyword in JavaScript is used to define a function that operates asynchronously. 
+An async function always returns a Promise, even if you don't explicitly return one.
+
+Suppose you dont return a promise, you simply return a text
+```javascript
+    async function getData(){
+        return "Simply text "
+    }
+
+    const dataPromise = getData()
+    console.log(dataPromise)                        // Check this is a promise
+    dataPromise.then((res)=>console.log(res))       // Get the value using then
+```
+
+Now you return a promise
+```javascript
+    const pr = new Promise((resolve, reject)=>{
+        resolve('Promise Returned and Resolved .')
+    });
+
+    async function getData(){
+        return pr;
+    }
+
+    const dataPromise = getData()
+    dataPromise.then((res)=>console.log(res))       // Promise Returned and Resolved .
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is await ?
+Await is a keyword that can only be used inside an async function.
+```javascript
+    const pr = new Promise((resolve, reject)=>{
+        resolve('Promise Returned and Resolved .')
+    });
+
+    async function handlePromise(){
+        const val = await pr;
+        console.log(val);
+    }
+    handlePromise();
+
+    // function getDataFromPromise(){
+    //     pr.then((res)=>console.log(res))       
+    // }
+    // getDataFromPromise();
+```
+
+
+In the below code, in Line# Promise called, do you think JS will wait till response?
+
+No it will run Hello World first, then only Promise(waited in webAPI for 10000ms came from callstack to GEC) will now execute
+```javascript
+    const pr = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved.')
+       }, 10000);
+    });
+
+    function getDataFromPromise(){
+        pr.then((res)=>console.log(res))                        //Line # Promise called  
+        console.log('Hello World !')
+    }
+    getDataFromPromise();
+
+    // OUTPUT : 
+    // Hello World !
+    // Promise Returned and Resolved.
+```
+
+Here comes Await in picture with async
+
+```javascript
+    const pr = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved .')
+       }, 10000);
+    });
+
+    async function handlePromise(){
+        console.log('Start')
+        const val = await pr;                           // Line # Promise awaiting 
+        console.log(val);
+        console.log('Hello World !')
+
+        const val2 = await pr;                           // Line # Promise awaiting 
+        console.log(val2);
+        console.log('Hello World 2 !')
+    }
+    handlePromise();
+
+    // OUTPUT
+    // Start 
+    // Promise Returned and Resolved .
+    // Hello World !
+    // Promise Returned and Resolved .
+    // Hello World 2 !
+```
+Here in Line # Promise awaiting , JS is waiting for the promise to be resolved. 
+First the Promise Returned and Resolved is printed then only Hello World is printed.
+
+
+
+Eg.  How about below question when pr1 has timeout of 5s & pr2 has timeout of 10s
+```javascript
+const pr1 = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved .')
+       }, 5000);
+    });
+    const pr2 = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved .')
+       }, 10000);
+    });
+
+    async function handlePromise(){
+        console.log('Start')
+        const val = await pr1;                            
+        console.log(val);                           // Prints in 5s 
+        console.log('Hello World !')
+
+        const val2 = await pr2;                          
+        console.log(val2);                          // Prints in 10s
+        console.log('Hello World 2 !')
+    }
+    handlePromise();
+
+    // OUTPUT
+    // Start 
+    // Promise Returned and Resolved .                          //printed in 5s
+    // Hello World !
+    // Promise Returned and Resolved .                          //printed in 10s
+    // Hello World 2 !
+```
+
+
+Eg. How about below question when pr1 has timeout of 10s & pr2 has timeout of 5s
+```javascript
+const pr1 = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved .')
+       }, 10000);
+    });
+    const pr2 = new Promise((resolve, reject)=>{
+       setTimeout(()=>{
+         resolve('Promise Returned and Resolved .')
+       }, 5000);
+    });
+
+    async function handlePromise(){
+        console.log('Start')
+        const val = await pr1;                            
+        console.log(val);                           // Prints in 10s 
+        console.log('Hello World !')
+
+        const val2 = await pr2;                          
+        console.log(val2);                          // Prints in 10s because it was waiting for above pr to be resoleved
+        console.log('Hello World 2 !')
+    }
+    handlePromise();
+
+    // OUTPUT
+    // Start 
+    // Promise Returned and Resolved .                          //printed in 10s
+    // Hello World !
+    // Promise Returned and Resolved .                          //printed in 10s
+    // Hello World 2 !
+```
 
 
 **[⬆ Back to Top](#table-of-contents)**
