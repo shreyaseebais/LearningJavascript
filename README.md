@@ -2330,6 +2330,7 @@ In JavaScript, this is a special keyword that refers to the object that is execu
 * Inside Arrow Functions
 * In Event Handlers
 * Explicit Binding (call, apply, and bind)
+Explained below in each topic.
 
 
 
@@ -2356,7 +2357,7 @@ In the global scope:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### How this works Inside a Function
+### Working of this  Inside a Function
 Value of this inside a function is actually Undefined.
 * Non-strict Mode: this substitutes to the global object. Hence it is Window.
 * Strict Mode: this remains undefined.
@@ -2383,7 +2384,7 @@ Value of this inside a function is actually Undefined.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### How this works Inside an Object (Method Call)
+### Working of this Inside an Object (Method Call)
 * When a function is called as a method of an object, this refers to the object that owns the method.
 
 ```javascript
