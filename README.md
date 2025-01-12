@@ -2376,7 +2376,7 @@ Value of this inside a function is actually Undefined.
 ```
 
 
-* 5. Inside a Class
+5. Inside a Class
 * In a class, this refers to the instance of the class.
 ```javascript
    class Person {
@@ -2394,7 +2394,7 @@ Value of this inside a function is actually Undefined.
 
 ```
 
-* 6. Inside Arrow Functions
+6. Inside Arrow Functions
 
 * Arrow functions do not have their own this. Instead, this is **lexically inherited from the surrounding scope** (the value of this where the arrow function is defined).
 * this aise behave karega ki wo arrow function ke andar hai hi nahi. Aur jo current lexical scope milega use le lega.
@@ -2411,18 +2411,21 @@ Value of this inside a function is actually Undefined.
     obj.greet();                            // undefined because this=obj and obj is in globalspace
 ```
 
-* 7. In Event Handlers
+7. In Event Handlers
 
 * this refers to the element that triggered the event.
+* In DOM element this referes to the element it is attached to. 
+For eg. in below example this is attached to button.
 
 ```javascript
-document.getElementById("myButton").addEventListener("click", function () {
-    console.log(this); // The button element
-});
+    document.getElementById("myButton").addEventListener("click", function () {
+        console.log(this);                                      // The button element
+    });
 ```
 
 
-* 8. Explicit Binding (call, apply, and bind)
+
+8. Explicit Binding (call, apply, and bind)
 You can explicitly set the value of this using call, apply, or bind.
 
 * call: Invokes a function with a specific this value and arguments provided individually.
@@ -2451,7 +2454,7 @@ boundGreet("Hey"); // Outputs: Hey, Alice
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 24. What is better alternative to XMLHttpRequest?
+### What is better alternative to XMLHttpRequest?
 
 Fetch API is a modern interface in JavaScript for making HTTP requests. It provides a cleaner and more powerful alternative to the older XMLHttpRequest. 
 
