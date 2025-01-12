@@ -1775,6 +1775,7 @@ Chaining multiple asynchronous operations with callbacks is cumbersome compared 
 where multiple nested callbacks make code difficult to read, understand, and maintain. 
 * It typically occurs when developers try to execute multiple asynchronous operations one after another, 
 where each operation depends on the result of the previous one.
+* OR , the code grows horizontally instead of vertically.
 
 ```javascript
     getDataFromAPI(function (response1) {
@@ -1888,19 +1889,10 @@ async/await syntax makes asynchronous code look synchronous and is more readable
 **[⬆ Back to Top](#table-of-contents)**
 
 ### 23. What is a Promise?
-
-A Promise in JavaScript is an object that represents the eventual completion (or failure) 
+* A Promise in JavaScript is an object that represents the eventual completion (or failure) 
 of an asynchronous operation and its resulting value. 
-
 * It provides a cleaner way to handle asynchronous tasks compared to callbacks.
-
-A promise can be in one of three states:
-
-* Pending: The initial state, neither fulfilled nor rejected.
-* Fulfilled: The operation completed successfully, and the promise has a result.
-* Rejected: The operation failed, and the promise has a reason for failure.
-
-Promise object looks like : 
+* Promise object looks like : 
 
 ```json
 Promise{
@@ -1909,11 +1901,22 @@ Promise{
     [[PromiseResult]]: "undefined || Response" 
 }
 ```
+A promise can be in one of three states:
+
+* Pending: The initial state, neither fulfilled nor rejected.
+* Fulfilled: The operation completed successfully, and the promise has a result.
+* Rejected: The operation failed, and the promise has a reason for failure.
+
 
 Once a promise is fulfilled or rejected, it becomes settled, and its state can no longer change.
 
+ 
 
-### Explain Creating a Promise 
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Explain how to create a Promise.
 You create a promise using the Promise constructor, which takes a function (called the executor) as its argument.
 This executor function has two parameters: resolve and reject.
 
@@ -1930,6 +1933,68 @@ This executor function has two parameters: resolve and reject.
     }
     });
 
+```
+
+
+```javascript
+    const cart = ['shoes','pantaloons', 'shirts'];
+
+    const promise = createOrder(cart);
+    console.log(promise);
+
+    promise
+    .then(function(orderId){
+        console.log(orderId);
+        return orderId;
+    })
+    .then(function(){
+        return proceedToPayment(orderId);
+    })
+    .then(paymentInfo){
+        console.log(paymentInfo)
+    }
+    .catch(function(err){
+        console.log(err.message)
+    })
+    .then(function(orderId){
+        console.log("No matter what happens, I will definitely be called ! ")
+    })
+
+    function createOrder(cart){
+        const pr = new Promise(function(resolve, reject){
+            // step1 : create order
+            // step2 : validate cart
+            // step3 : orderId
+
+            if(!validateCart(cart)){
+                const err = new Error("Cart is not valid !")
+                reject(err)
+            }
+
+            //Logic to create order
+            const orderId = '12345';
+            if(orderId){
+                setTimeOut(function(){
+                    resolve(orderId)
+                },5000);
+                resolve(orderId);
+            }
+        });
+        return pr;
+    }
+
+    function proceedToPayment(id){
+        // Steps to pay with the id
+        return new Promise(function(resolve, reject){
+            resolve("Payment successful");
+            reject("Could not pay");
+        });
+    }
+
+    function validateCart(cart ){
+        // steps to validate
+        return true;
+    }
 ```
 
 
@@ -1957,6 +2022,133 @@ To consume or handle the result of a promise, you use the .then() and .catch() m
     });
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
+### Explain use of promise horizontally vs vertically
+
+Following code is horizontally growing : 
+What is it doing? Ek function response pe dusra function dusre response pe teesra function. 
+```javascript
+    const cart = ['shoes', 'pantaloons', 'shirt'];
+    createOrder(cart, function(orderId){
+        proceedToPayment(orderId, function(paymentInfo){
+            showOrderSummary(paymentInfo, function(){
+                updateWalletBalance();
+            });
+        });
+    });
+```
+
+
+Following code is vertically growing : 
+What is it now doing ? ek promise ke resolve hone pe dusra function, dusre k resolve hone pe teesra.
+```javascript
+    const cart = ['shoes', 'pantaloons', 'shirt'];
+    createOrder(cart)
+    .then(function(orderId){
+        return proceedToPayment(orderId);
+    })
+    .then(function (paymentInfo){
+        return showOrderSummary(paymentInfo)
+    })
+    .then(function (paymentInfo){
+        return updateWalletBalance(paymentInfo)
+    })
+```
+OR
+```javascript
+    const cart = ['shoes', 'pantaloons', 'shirt'];
+    createOrder(cart)
+    .then((orderId) => proceedToPayment(orderId);)
+    .then((paymentInfo) => showOrderSummary(paymentInfo))
+    .then((paymentInfo) => updateWalletBalance(paymentInfo))
+```
+
+
+If we would have done like this:
+Ek promise pe dusra promise, toh yeh bhi Promise hell ho jata.
+proceedToPayment par directly dusra call kar diya hai. Wait for it to resolve, then only do next call.
+```javascript
+    const cart = ['shoes', 'pantaloons', 'shirt'];
+    createOrder(cart)
+    .then((orderId) => proceedToPayment(orderId).then((paymentInfo) => showOrderSummary(paymentInfo)));
+    .then((paymentInfo) => updateWalletBalance(paymentInfo))
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What are Promise APIs ?
+
+* Promise.resolve(value)
+* Promise.reject(reason)
+* Promise.all(promises)
+* Promise.allSettled(promises)
+* Promise.race(promises)
+* Promise.any(promises)
+
+
+
+**Promise.all(promises)** 
+
+Runs multiple promises in parallel and waits until all are resolved (or one is rejected)
+
+```javascript
+    const p1 = Promise.resolve(1);                  // resolves in 5sec
+    const p2 = Promise.resolve(2);                  // resolves in 2sec 
+    const p3 = Promise.resolve(3);                  // resolves in 3sec
+
+    Promise.all([p1, p2, p3]).then((values) => console.log(values)); // Resolves after 5sec - Output: [1, 2, 3]
+```
+```javascript
+    const p1 = Promise.resolve(1);                  // resolves in 5sec
+    const p2 = Promise.reject("Error");             // rejects in 2sec 
+    const p3 = Promise.resolve(3);                  // resolves in 3sec
+
+    Promise.all([p1, p2, p3]).then((values) => console.log(values)); // Rejects in 2sec itself - Output : Error
+    // As one of the promises is rejected, it wont wait for others to be resolved. 
+```
+
+
+
+**Promise.allSettled(promises)**
+
+Runs multiple promises in parallel and waits until all are settled (either resolved or rejected)
+
+```javascript
+    const p1 = Promise.resolve(1);                  // resolves in 5sec
+    const p2 = Promise.reject("Error");             // rejects in 2sec 
+    const p3 = Promise.resolve(3);                  // resolves in 3sec
+
+    Promise.all([p1, p2, p3]).then((values) => console.log(values)); // Rejects in 5sec - Output : Error
+    // One of the promises is rejected, but it will still wait for others to be SETTLED(be it resolve or reject), then only it will respond. 
+
+    // Output:
+    // [
+    //   { status: 'fulfilled', value: 1 },
+    //   { status: 'rejected', reason: 'Error' },
+    //   { status: 'fulfilled', value: 3 }
+    // ]
+```
+
+**Promise.race(promises)**
+* Returns a promise that resolves or rejects as soon as the first promise in the array settles.
+* Yeh ek race hai. First promise jab bhi settle hoga, be it resolve or reject, wahi final output hoga.
+
+```javascript
+const p1 = new Promise((resolve) => setTimeout(() => resolve("P1"), 100));
+const p2 = new Promise((resolve) => setTimeout(() => resolve("P2"), 200));
+
+Promise.race([p1, p2]).then((result) => console.log(result)); // Output: "P1"
+```
+
+```javascript
+const p1 = new Promise((resolve) => setTimeout(() => reject("P1 Err"), 100));
+const p2 = new Promise((resolve) => setTimeout(() => resolve("P2"), 200));
+
+Promise.race([p1, p2]).then((result) => console.log(result)); // Output: "P1 Err"
+```
 
 
 
