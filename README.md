@@ -2594,6 +2594,48 @@ All these methods are user for method/functions borrowing/sharing.
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### What are Polyfills ?
+
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How will you create your own bind function if you are working in older browser?
+
+```javascript
+    let printName= function(hometown, state, country){
+        console.log(this.fName + " " + this.lName + " is from " + hometown + " " + state + " " + country );
+    }
+    let name={
+        fName: "Default",
+        lName: "Name",
+    }
+
+    // bind() is present in new broswers
+    // let boundFullName = printName.bind(name, "Raipur", "Chhattisgarh");
+    // boundFullName();
+
+    // Creating our own bind() 
+    Function.prototype.mybind = function(...args){
+        let obj = this,
+            params = args.slice(1);
+        return function(...args2){
+            // obj.call(args[0], args[1], args[2]);
+            obj.apply(args[0], [...params, ...args2]);
+        }
+    }
+    let boundFullName = printName.mybind(name, "Raipur", "Chhattisgarh", "India");
+    boundFullName();
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What is better alternative to XMLHttpRequest?
 
 Fetch API is a modern interface in JavaScript for making HTTP requests. It provides a cleaner and more powerful alternative to the older XMLHttpRequest. 
