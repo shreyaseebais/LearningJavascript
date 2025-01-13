@@ -134,14 +134,14 @@ In JavaScript, the execution context is the environment in which JavaScript code
 * What data is accessible (variables, functions, objects).
 * How the code behaves in a specific context.
 Every time a function is invoked, or the global code is executed, an execution context is created.
----
+
 <div>
 <p align="center">
     <img src="./images/executionContext.png" alt="Javascript Engine" width="70%">
 </p>
 </div>
 
----
+
 **TYPES of Execution Context**
 1. Global Execution Context (GEC)
 2. Function Execution Context (FEC)
@@ -2964,7 +2964,174 @@ console.log(copy === arr); // Output: false (different references)
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### What is CURRYING in javascript ?
+Currying is a functional programming technique where a function is transformed into a sequence of functions, each taking a single argument. Instead of taking all arguments at once, a curried function takes the first argument and returns another function that takes the next argument, and so on, until all arguments have been provided.
+
+Currying using Bind method :
+```javascript
+    let multiply = function(x,y){
+        console.log(x*y);
+    }
+
+    let multiplyByTwo = multiply.bind(this,2);
+    multiplyByTwo(5);                                           // Output : 10
+
+    let multiplyByThree = multiply.bind(this,3);
+    multiplyByThree(5);                                         // Output : 15
+
+    let multiplyByThreeB = multiply.bind(this,3,7);
+    multiplyByThreeB(5);                                        // Output : 21
+
+    let multiplyByThreeC = multiply.bind(this);
+    multiplyByThreeB(3, 7);                                     // Output : 21
+```
+
+Currying using Closure:
+```javascript
+    let multiply = function(x){
+        return function(y){
+            console.log(x*y);
+        }
+    }
+
+    let multiplyByAnything = multiply(2);
+    multiplyByAnything(5);
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Debouncing ?
+* Debouncing is a programming technique used to control the rate at which a function is executed. Specifically, it ensures that a function is executed only after a specified period of time has elapsed since the last time it was invoked. 
+* This is particularly useful in scenarios where a function is called frequently in quick succession, such as during:
+
+1. Window resizing
+2. Scrolling
+3. Keypress events
+4. Button clicks
+
+
+* One example of debouncing- 
+1. In Amazon you type Wrist Watches, and you see lot of options below even without submitting the value. 
+2. To control these number of API calls in every click event (w , r, i, s, t, w, a, t, c, h, e, s)
+we give a  delay of few ms so that to make lesser calls like user will write wrist then a pause of 300msec then watches
+3. so  we can give a delay of 300ms in every click event. 
+4. Hence API Call1 will take(wrist) API call2 will take(wrist watches)
+5. This delaying is called debouncing.
+
+```javascript
+   let counter = 0;
+   const getData = ()=>{
+    console.log('Fetching data: ', counter);
+   } 
+
+   const debounce = function(fn, d){
+    let timer;
+    return  function(){
+        let context = this,
+            args = arguments;
+
+        clearTimeout(timer);
+
+        timer = setTimeout(()=>{
+            fn.apply(context, args);
+        }, d);
+    }
+   }
+
+   const betterFunction = debounce(getData, 300);
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Async vs Defer
+
+Both async and defer are attributes that can be added to < script > tags in HTML. They are used to control the loading and execution of external JavaScript files, helping to optimize page performance.
+
+
+<div>
+<p align="center">
+    <img src="./images/asyncvsdefer.png" alt="asyncdefer" width="70%">
+</p>
+</div>
+
+**Without async or defer**
+If neither attribute is used:
+* The browser pauses HTML parsing.
+* Downloads and executes the script immediately before resuming HTML parsing.
+* This blocks the page rendering and slows down performance.
+
+```html
+<script src="script.js"></script>
+```
+
+**async**
+* The script is downloaded in parallel to the HTML parsing.
+* It is executed immediately after it finishes downloading, potentially interrupting HTML parsing.
+* Order of execution is not guaranteed if multiple async scripts are used.
+
+```html
+    <script async src="script1.js"></script>
+    <script async src="script2.js"></script>
+```
+* script1.js and script2.js might execute in any order, depending on which downloads first.
+* Suitable for scripts that do not depend on each other or on the DOM, such as analytics or tracking scripts.
+
+
+**defer**
+* The script is downloaded in parallel to the HTML parsing.
+* But it is executed only after the entire HTML document is parsed, ensuring it doesn’t block rendering.
+* Order of execution is guaranteed: Scripts are executed in the order they appear in the document.
+
+```html
+    <script defer src="script1.js"></script>
+    <script defer src="script2.js"></script>
+```
+
+* script1.js will execute before script2.js, even if script2.js finishes downloading first.
+* Suitable for scripts that rely on the fully parsed DOM, such as those manipulating DOM elements.
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### When to Use async
+* Use async for scripts that do not depend on the DOM or other scripts.
+* Example: Analytics, advertisements, or social media widgets.
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### When to Use defer
+* Use defer for scripts that depend on the DOM or need to be executed in a specific order.
+* Example: Main application logic, DOM manipulation scripts, or scripts that depend on other libraries.
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz
 
 ```javascript
    console.log('xyz');
@@ -2975,21 +3142,30 @@ console.log(copy === arr); // Output: false (different references)
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. XYZ
+### xyz
 
 ```javascript
    console.log('xyz');
 ```
 
 
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### xyz
+
+```javascript
+   console.log('xyz');
+```
+
+
+
+
 **[⬆ Back to Top](#table-of-contents)**
 
 
-
-
-
-
-101. ### JavaScript Calculator
+### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
 ```javascript
    console.log('Calculator');
@@ -3000,7 +3176,7 @@ Write a program to make a calculator using simple javascript, html, css.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-102. ### Student Portal
+### Student Portal
 Write a program to make a calculator using simple javascript, html, css.
 ```javascript
    console.log('Student portal using arrays ');
@@ -3010,7 +3186,7 @@ Write a program to make a calculator using simple javascript, html, css.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-108. ### Equality vs Strict Equality
+### Equality vs Strict Equality
 Few examples of comparison between == and ===
 
 ```javascript
