@@ -142,12 +142,13 @@ Every time a function is invoked, or the global code is executed, an execution c
 </div>
 
 
-**TYPES of Execution Context**
+### TYPES of Execution Context
 1. Global Execution Context (GEC)
 2. Function Execution Context (FEC)
 3. Eval Execution Context (rare)
 
-**PHASES of Execution Context**
+
+### PHASES of Execution Context**
 
 Each execution context goes through two phases:
 
@@ -266,7 +267,7 @@ Visualizing Execution Context
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 4. Hoisting
+### Hoisting
 Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means you can use variables and functions before they are declared in the code.
 
 However, only the declarations are hoisted, not the initializations or assignments.
@@ -289,7 +290,7 @@ However, only the declarations are hoisted, not the initializations or assignmen
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 4. Examples of Hoisting
+### Examples of Hoisting
 
 1. Hoisting with function declarations
 ```javascript
@@ -416,7 +417,7 @@ The Garbage Collector (GC) is a mechanism in programming languages, including Ja
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 5. What is Scope Chain ?
+### What is Scope Chain ?
 The scope chain in JavaScript is a mechanism that determines how variables, functions, and objects are accessed in nested functions. It is the chain of lexical environments where a JavaScript interpreter looks for variable and function declarations.
 
 When a variable or function is accessed, the JavaScript engine:
@@ -456,7 +457,7 @@ If the variable is not found in any scope, a ReferenceError is thrown.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 6. What are different types of Scopes in JavaScript
+### What are different types of Scopes in JavaScript
 
 **Global Scope:**
 * accessible throughout the entire program
@@ -539,9 +540,7 @@ Inside the block b is shadowing the value 100 and is having the value of 20. Thi
 </p>
 </div>
 
-Eg 2. 
-
-Valid shadowing
+Eg 2. Valid shadowing
 
 ```javascript
     let a = 10;
@@ -559,9 +558,7 @@ Valid shadowing
     }
 ```
 
-Eg 3.
-
-Illegal shadowing
+Eg 3. Illegal shadowing
 
 Why? because the inside declared variable(20) should not cross the boundary. And here var a has it's scope outside as well.
 
@@ -581,10 +578,7 @@ Hence below code is Legal
     }
 ```
 
-Eg 4.  
-
-Below consts are making Legal shadowing
-
+Eg 4. Below consts are making Legal shadowing
 ```javascript
     const a = 10;
     {
@@ -976,8 +970,6 @@ Try out with below example :
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
-
 ### 7. How to iterate over a JavaScript object ?
 * Using for loop
 ```javascript
@@ -1090,6 +1082,13 @@ This is achieved using:
     fetchData();
 ```
 
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What is Prototype ?
 
 
 
@@ -3136,13 +3135,17 @@ If neither attribute is used:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Event Delegation
+### What is Event Delegation in JavaScript?
+Event delegation is a technique in JavaScript where you use a single event listener on a parent element to handle events on its child elements, even if those child elements are added dynamically. Instead of attaching event listeners to multiple elements, the event is captured during the bubbling phase as it propagates up the DOM tree, allowing the parent to handle the event.
+
+**How Event Delegation Works**
+* An event listener is attached to a parent element.
+* When an event occurs on a child element, the event "bubbles up" to the parent.
+* The parent element's event listener checks the event's target (the element that triggered the event) to determine if and how to respond.
 
 ```javascript
-   console.log('xyz');
+    console.log('Write example here ! ')
 ```
-
-
 
 
 **[⬆ Back to Top](#table-of-contents)**
