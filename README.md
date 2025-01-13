@@ -3233,10 +3233,55 @@ CORS is a security feature implemented by browsers to restrict cross-origin HTTP
 | Feature           |   	LocalStorage	            |   SessionStorage                 |    Cookies                     |
 |-------------------|-----------------------------------|----------------------------------|--------------------------------|
 | Storage Limit	    |       ~5–10 MB	                |   ~5 MB                          |    ~4 KB per cookie            |
-| Persistence	    |       Until explicitly cleared    |   Until tab/browser is closed    |    Depends on expiration time  |
+| Persistence	    |  Data persists even after the browser is closed and reopened.   |  Data is cleared when the tab or browser is closed.    |   Cookies can have a specified expiration time; otherwise, they are session-based and cleared when the browser is closed.|
 | Scope	            |       Same-origin	                |   Same-origin	                   |    Same-origin or broader      |
 | Sent to Server    |	    No	                        |   No                             |	Yes                         |
-| Use Cases	        | Use for large, persistent data that doesn’t need to be sent to the server |Use for temporary data specific to a session | Use for small, sensitive data that needs to be sent to the server|
+| Use Cases	        | Use for large, persistent data that doesn’t need to be sent to the server |   Use for temporary data specific to a session | Use for small, sensitive data that needs to be sent to the server  |
+
+LocalStorage 
+```javascript
+    // Set item
+    localStorage.setItem("key", "value");
+
+    // Get item
+    const value = localStorage.getItem("key");
+
+    // Remove item
+    localStorage.removeItem("key");
+
+    // Clear all items
+    localStorage.clear();
+
+```
+
+SessionStorage 
+```javascript
+    // Set item
+    sessionStorage.setItem("key", "value");
+
+    // Get item
+    const value = sessionStorage.getItem("key");
+
+    // Remove item
+    sessionStorage.removeItem("key");
+
+    // Clear all items
+    sessionStorage.clear();
+
+```
+
+Cookie
+```javascript
+    // Set a cookie
+    document.cookie = "key=value; expires=Fri, 31 Dec 2025 12:00:00 UTC; path=/";
+
+    // Get cookies
+    console.log(document.cookie);
+
+    // Delete a cookie (set an expired date)
+    document.cookie = "key=value; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+```
 
 
 **[⬆ Back to Top](#table-of-contents)**
