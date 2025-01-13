@@ -1090,7 +1090,7 @@ This is achieved using:
 
 ### What is Prototype ?
 
-
+### What is Prototypal Inheritance ?
 
 
 **[⬆ Back to Top](#table-of-contents)**
@@ -3050,6 +3050,50 @@ we give a  delay of few ms so that to make lesser calls like user will write wri
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### Throttling
+* Unlike debouncing which calls after given amount of time after click event.
+throttling calls after given amount of time previous fn was called previousCall+300ms.
+
+```javascript
+   const getData = ()=>{
+    console.log('Fetching data: ', counter);
+   } 
+
+   const throttle = function(fn, d){
+    let flag = true;
+
+    return  function(){
+        let context = this,
+            args = arguments;
+
+        if(flag){
+            fn.apply(context, args)
+            flag= false;
+        }
+
+        setTimeout(()=>{
+            flag=true;
+        }, d);
+    }
+   }
+
+   const betterFunction = throttle(getData, 300);
+   window.addEventListener("resize", betterFunction)
+```
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Compare Debouncing vs Throttling. Give example scenarios.
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Async vs Defer
 
 Both async and defer are attributes that can be added to < script > tags in HTML. They are used to control the loading and execution of external JavaScript files, helping to optimize page performance.
@@ -3148,30 +3192,54 @@ Event delegation is a technique in JavaScript where you use a single event liste
 ```
 
 
-**[⬆ Back to Top](#table-of-contents)**
-
-### xyz
-
-```javascript
-   console.log('xyz');
-```
-
-
 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### xyz
+### What is CORS ?
 
-```javascript
-   console.log('xyz');
-```
+A CORS (Cross-Origin Resource Sharing) preflight request is a preliminary request made by the browser to determine whether the actual request is safe to send to the server. It is sent for cross-origin HTTP requests when certain conditions are met.
+
+1. CORS:
+
+CORS is a security feature implemented by browsers to restrict cross-origin HTTP requests. It ensures that resources on a web page can only be requested from the same domain unless explicitly allowed by the server.
+
+
+2. Preflight Request:
+
+* Before making an actual HTTP request (e.g., POST, PUT, DELETE), the browser sends an HTTP OPTIONS request to the server to check if the server allows the actual request.
+* This OPTIONS request is called the preflight request.
+
+
+3. When is a Preflight Request Triggered? A preflight request is sent if:
+
+* The request uses a method other than GET, POST, or HEAD.
+* Custom headers are included (e.g., Authorization, X-Custom-Header).
+* The Content-Type is not one of the following:
+    * application/x-www-form-urlencoded
+    * multipart/form-data
+    * text/plain
+* The request is made with credentials (e.g., cookies or HTTP authentication).
+
+
 
 
 
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### LocalStorage / SessionStorage / Cookies 
+
+| Feature           |   	LocalStorage	            |   SessionStorage                 |    Cookies                     |
+|-------------------|-----------------------------------|----------------------------------|--------------------------------|
+| Storage Limit	    |       ~5–10 MB	                |   ~5 MB                          |    ~4 KB per cookie            |
+| Persistence	    |       Until explicitly cleared    |   Until tab/browser is closed    |    Depends on expiration time  |
+| Scope	            |       Same-origin	                |   Same-origin	                   |    Same-origin or broader      |
+| Sent to Server    |	    No	                        |   No                             |	Yes                         |
+| Use Cases	        |       User settings, caching      |   Session-specific data          |    Authentication, tracking    |
+
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### JavaScript Calculator
 Write a program to make a calculator using simple javascript, html, css.
