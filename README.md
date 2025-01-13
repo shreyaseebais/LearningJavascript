@@ -3236,7 +3236,7 @@ CORS is a security feature implemented by browsers to restrict cross-origin HTTP
 | Persistence	    |       Until explicitly cleared    |   Until tab/browser is closed    |    Depends on expiration time  |
 | Scope	            |       Same-origin	                |   Same-origin	                   |    Same-origin or broader      |
 | Sent to Server    |	    No	                        |   No                             |	Yes                         |
-| Use Cases	        |       User settings, caching      |   Session-specific data          |    Authentication, tracking    |
+| Use Cases	        | Use for large, persistent data that doesn’t need to be sent to the server |Use for temporary data specific to a session | Use for small, sensitive data that needs to be sent to the server|
 
 
 **[⬆ Back to Top](#table-of-contents)**
