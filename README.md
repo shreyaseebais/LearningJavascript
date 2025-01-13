@@ -3121,17 +3121,22 @@ If neither attribute is used:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### xyz
+### Event Bubbling vs Event Capturing 
+* Event bubbling andar se bahar jaata hai, bubbles up. Child -> Parent -> Grandchild
+* Event capturing bahar se andar jaata hai, captures in. Grandchild -> Parent -> Child
+* Agar kisi stage par rokna hai toh event.stopPropagation
+* By default false means event bubbling
+* Agar true means event capturing.
 
 ```javascript
-   console.log('xyz');
+   console.log('Write example here ');
 ```
 
 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### xyz
+### Event Delegation
 
 ```javascript
    console.log('xyz');
