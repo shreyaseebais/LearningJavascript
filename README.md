@@ -2507,6 +2507,87 @@ const boundGreet = greet.bind(person);
 boundGreet("Hey"); // Outputs: Hey, Alice
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
+### Explain Call
+
+```javascript
+        let name={
+            fName: "Default",
+            lName: "Name",
+            printFullName: function(){
+            console.log(this.fName + " " + this.lName);
+            }
+        }
+        name.printFullName();
+
+
+        let name2= {
+            fName : "Sachin",
+            lName : "Tendulkar"
+        }
+
+        name.printFullName.call(name2);
+```
+same as 
+```javascript
+    let printFullName= function(){
+        console.log(this.fName + " " + this.lName);
+    }
+    let name={
+        fName: "Default",
+        lName: "Name",
+    }
+    //Borrowing the function
+    printFullName.call(name);
+
+
+    let name2= {
+        fName : "Sachin",
+        lName : "Tendulkar"
+    }
+    //Borrowing the function
+    printFullName.call(name2);
+```
+
+
+
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Explain Call, Apply, Bind
+All these methods are user for method/functions borrowing/sharing.
+1. call method is used to call the function with the given this value and argument can be passed individually.
+2. apply method is similar to call method, the only difference is that instead of passing argument individually, will pass the argument in a list/array.
+3. bind method is similar to call method. The only difference is Bind returns a function. You have to invoke it later.
+
+```javascript
+    let printFullName= function(hometown, state){
+        console.log(this.fName + " " + this.lName + " is from " + hometown + " " + state);
+    }
+    
+    let name={
+        fName: "Default",
+        lName: "Name",
+    }
+    printFullName.call(name, "Raipur", "Chhattisgarh");
+    printFullName.apply(name, ["Raipur", "Chhattisgarh"]);
+    let boundFullName = printFullName.bind(name, "Raipur", "Chhattisgarh");
+    console.log(boundFullName);
+    boundFullName();
+    console.log('--------------------------------------------------------')
+    
+    let name2= {
+        fName : "Sachin",
+        lName : "Tendulkar"
+    }
+    printFullName.call(name2, "Pune", "Maharashtra");
+    printFullName.apply(name2, ["Pune", "Maharashtra"]);
+    let boundFullName2 = printFullName.bind(name2, "Pune", "Maharashtra");
+    boundFullName2();
+```
+
 
 
 
