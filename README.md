@@ -85,7 +85,7 @@ Eg. Python, Ruby, Javascript are Interpreted languages.
 **[⬆ Back to Top](#table-of-contents)**
 
 
-### 1. What is a JavaScript Engine?
+### What is a JavaScript Engine?
 A JavaScript engine is a program or interpreter that executes JavaScript code. It is responsible for parsing, optimizing, and running the code written in JavaScript, enabling it to interact with web pages, servers, and other applications.
 
 Modern JavaScript engines are highly optimized and use Just-In-Time (JIT) compilation to improve performance.
@@ -129,7 +129,7 @@ Engines continuously analyze the running code and optimize it for better perform
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 3. What is Execution context ?
+### What is Execution context ?
 In JavaScript, the execution context is the environment in which JavaScript code is evaluated and executed. It determines:
 * What data is accessible (variables, functions, objects).
 * How the code behaves in a specific context.
@@ -970,7 +970,7 @@ Try out with below example :
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 7. How to iterate over a JavaScript object ?
+### How to iterate over a JavaScript object ?
 * Using for loop
 ```javascript
     function iterateObject() {
@@ -1031,7 +1031,7 @@ Try out with below example :
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 8. Is Javascript Synchronous or Asynchronous ?
+### Is Javascript Synchronous or Asynchronous ?
 
 JavaScript is **single-threaded**.
 
@@ -1095,7 +1095,7 @@ This is achieved using:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 9. What is Strict mode in javascript?
+### What is Strict mode in javascript?
 
 Strict mode in JavaScript is a feature that makes the language's behavior more predictable and secure by applying stricter parsing and error handling. It helps developers write cleaner, less error-prone code by eliminating silent errors and encouraging best practices.
 
@@ -1215,7 +1215,7 @@ delete x; // Error: Cannot delete variable declared with let
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. What is a Function ?
+### What is a Function ?
 In JavaScript, a function is a block of reusable code designed to perform a specific task. Functions are fundamental building blocks in JavaScript, allowing you to structure code into manageable and reusable components.
 
 
@@ -1335,7 +1335,7 @@ A function is executed when it is called or invoked.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 11. What are Parameters and Arguments ?
+### What are Parameters and Arguments ?
 Parameters: Variables defined in the function definition.
 Arguments: Values passed to the function when it is called.
 
@@ -1369,7 +1369,7 @@ console.log(greet("Alice")); // Output: Hello, Alice!
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 13. What are Pure Functions?
+### What are Pure Functions?
 
 Always produce the same output for the same input and have no side effects.
 ```javascript
@@ -1384,7 +1384,7 @@ function square(x) {
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 14. What are Higher-Order Functions?
+### What are Higher-Order Functions?
 
 Higher-Order Functions are the functions that take other functions as arguments OR returns a function from them.
 
@@ -1438,7 +1438,7 @@ Another example to calculate area perimeter of circle :
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 15. What are Immediately Invoked Function Expression (IIFE)?
+### What are Immediately Invoked Function Expression (IIFE)?
 
 A function that runs immediately after being defined.
 ```javascript
@@ -1476,7 +1476,7 @@ A function without a name is called Anonymous function.. It is assigned directly
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 17. What is Function Expression?
+### What is Function Expression?
 A function expression in JavaScript is a way to define a function by assigning it to a variable.
 
 ```javascript
@@ -1549,7 +1549,7 @@ Once x received it, it decides what to do with the parameter.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 19. When to Use XMLHttpRequest?
+### When to Use XMLHttpRequest?
 * Use XMLHttpRequest if you need to support very old browsers.
 * Otherwise, prefer fetch() for modern, cleaner, and more readable code.
 
@@ -1558,7 +1558,7 @@ Once x received it, it decides what to do with the parameter.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 20. What is XMLHttpRequest?
+### What is XMLHttpRequest?
 * A JavaScript object used to send HTTP or HTTPS requests to a server and load the response data back into the script.
 * It works asynchronously by default, so the user experience isn't interrupted.
 
@@ -1624,7 +1624,7 @@ Chaining multiple asynchronous operations with callbacks is cumbersome compared 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 21. What is Callback Hell ?
+### What is Callback Hell ?
 * Callback hell refers to a situation in JavaScript (or other asynchronous programming environments) 
 where multiple nested callbacks make code difficult to read, understand, and maintain. 
 * It typically occurs when developers try to execute multiple asynchronous operations one after another, 
@@ -1663,7 +1663,7 @@ This code:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 22. What are the Solutions to Avoid Callback Hell ? 
+### What are the Solutions to Avoid Callback Hell ? 
 
 1. Use Named Functions
 
@@ -1742,7 +1742,7 @@ async/await syntax makes asynchronous code look synchronous and is more readable
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 23. What is a Promise?
+### What is a Promise?
 * A Promise in JavaScript is an object that represents the eventual completion (or failure) 
 of an asynchronous operation and its resulting value. 
 * It provides a cleaner way to handle asynchronous tasks compared to callbacks.
@@ -2287,7 +2287,7 @@ Eg.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 6. What is the this Keyword in JavaScript? 
+### What is the this Keyword in JavaScript? 
 In JavaScript, this is a special keyword that refers to the object that is executing the current function. The value of this depends on how and where the function is invoked, not where it is defined. 
 
 |           Context	                 |               Value of this                               |
@@ -2682,7 +2682,7 @@ Example
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 25. Can you throw an Error manually ?
+### Can you throw an Error manually ?
 In JavaScript, you can throw an error manually using the throw statement. This is useful when you want to stop code execution and handle exceptional cases explicitly, such as invalid input, failed operations, or custom error conditions.
 
 Eg. 
@@ -2706,7 +2706,7 @@ Eg.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 26. Undefined vs Not defined in Javascript?
+### Undefined vs Not defined in Javascript?
 
 Javascript is also called loosely typed/weakly typed language. 
 * Undefined :Variable is defined but no value
@@ -2725,7 +2725,7 @@ Javascript is also called loosely typed/weakly typed language.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 27. What is Map function ? How do you use it ?
+### What is Map function ? How do you use it ?
 
 Eg. Find double, triple & binary for of given array 
 ```javascript
@@ -2920,7 +2920,7 @@ Eg. Find number of people by age group
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 19. What are Slice and Splice methods in JS? What are differences? 
+### What are Slice and Splice methods in JS? What are differences? 
 
 **slice()**
 Extracts a portion of an array without modifying the original array.
@@ -2946,7 +2946,7 @@ Adds, removes, or replaces elements in an array.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### 10. How can you create a shallow copy of an array using slice()?
+### How can you create a shallow copy of an array using slice()?
 
 ```javascript
    const arr = [1, 2, 3];
